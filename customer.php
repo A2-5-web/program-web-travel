@@ -14,14 +14,12 @@
                     <a href="#" class="label-lg navbar-link has-after active">Home</a>
                 </li>
                 <li class="navbar-item">
-                    <a href=" " class="label-lg navbar-link has-after">A</a>
-                </li>
-                <li class="navbar-item">
                     <a href=" " class="label-lg navbar-link has-after">About</a>
                 </li>
                 <li class="navbar-item">
                     <a href=" " class="label-lg navbar-link has-after">Profile</a>
                 </li>  										
+                <button type="button" class="btn btn-outline-primary">Pesan</button>
             </nav>
         </div>
     </header>
