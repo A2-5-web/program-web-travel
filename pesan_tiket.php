@@ -1,3 +1,14 @@
+<?php
+//koneksi ke database
+$conn = mysqli_connect("db4free.net", "kelompok_5", "kelompok_5", "travel");
+
+//query untuk mengambil data dari tabel
+$query = "SELECT * FROM paket_wisata";
+
+//eksekusi query
+$result = mysqli_query($conn, $query);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -54,11 +65,57 @@
           </div>
           <ul class="navbar nav ms-auto">
             <li class="nav-item">
-                <button type="button" class="btn btn-outline-primary" onclick="window.location.href='pesan_tiket.php'">PESAN TIKET</button>
+                <button type="button" class="btn btn-outline-primary">PESAN TIKET</button>
             </li>
           </ul>
         </div>
       </nav>
     </header>
+
+    <!-- PESAN TIKET -->
+    <div class="title-wrap">
+        <span class="sm-title"
+            >Jangan lewatkan kesempatan untuk menjelajahi dunia!</span
+        >
+      <h2 class="lg-title">Form Order</h2>
+    </div>
+    <form class="box">
+      <div class="form-group">
+        <label for="nama-penumpang">Nama Penumpang</label>
+        <input type="text" id="nama-penumpang" name="nama-penumpang" />
+      </div>
+      <div class="form-group">
+        <label for="alamat-penumpang">Alamat Penumpang</label>
+        <textarea id="alamat-penumpang" name="alamat-penumpang"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="tanggal-pesan">Tanggal Pesan</label>
+        <input type="date" id="tanggal-pesan" name="tanggal-pesan" />
+      </div>
+      <div class="form-group">
+        <label for="tanggal-berangkat">Tanggal Berangkat</label>
+        <input type="date" id="tanggal-berangkat" name="tanggal-berangkat" />
+      </div>
+      <div class="form-group">
+        <label for="jam-berangkat">Jam Berangkat</label>
+        <input type="time" id="jam-berangkat" name="jam-berangkat" />
+      </div>
+      <div class="form-group">
+        <label for="kode-tiket">Kode Tiket</label>
+        <select id="kode-tiket" name="kode-tiket">
+            <?php
+            while($data = mysqli_fetch_assoc($result)) {
+            ?>
+            <option value="<?php echo $data['id_paket']; ?>"><?php echo $data['nama_paket']; ?> - $<?php echo $data['harga_paket']; ?></option>
+            <?php
+            }
+            ?>
+        </select>
+      </div>
+      <button type="submit">Pesan Tiket</button>
+    </form>
+    <br /><br /><br />
+    <!-- PESAN TIKET -->
+
   </body>
 </html>
