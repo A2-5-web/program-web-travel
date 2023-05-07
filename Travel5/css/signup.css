@@ -3,7 +3,7 @@
   font-family: "poppins", sans-serif;
 }
 body {
-  background-image: url("images/1.jpg");
+  background-image: url("../images/header-bg.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -30,7 +30,9 @@ span {
 }
 header {
   color: #fff;
-  font-size: 30px;
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: 5px;
   display: flex;
   justify-content: center;
   padding: 10px 0 10px 0;
@@ -44,12 +46,14 @@ header {
   color: #fff;
   font-size: 15px;
   padding: 0 0 0 45px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.2);
   outline: none;
+  margin-bottom: 10px;
 }
-i {
+
+.input-field i {
   position: relative;
-  top: -33px;
+  top: -40px;
   left: 17px;
   color: #fff;
 }
@@ -91,4 +95,14 @@ select {
 label a {
   text-decoration: none;
   color: #fff;
+}
+
+p {
+  color: #fff;
+}
+
+p a{
+  text-decoration:none;
+  color: #000;
+  font-weight: 600;
 }

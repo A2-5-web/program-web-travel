@@ -1,14 +1,17 @@
 <?php
+require_once "../database/save_to_local.php";
 
 class CustomerModel {
     private $conn;
-
+    private $databaseBackup;
     public function __construct() {
         // Membuat koneksi ke database
         $this->conn = mysqli_connect('db4free.net', 'kelompok_5', 'kelompok_5', 'travel');
         if(!$this->conn) {
             die("Koneksi gagal: " . mysqli_connect_error());
         }
+        // Membuat objek MainModel
+        $this->databaseBackup = new DatabaseBackup($this->conn);
     }
 
     public function __destruct() {
@@ -16,9 +19,9 @@ class CustomerModel {
         mysqli_close($this->conn);
     }
 
-    public function addCustomer($nama, $email, $password, $alamat, $telepon) {
+    public function addCustomer($nama, $email, $password, $alamat, $telepon, $role) {
         // Validasi input
-        if(empty($nama) || empty($email) || empty($password) || empty($alamat) || empty($telepon)) {
+        if(empty($nama) || empty($email) || empty($password) || empty($alamat) || empty($telepon) || empty($role)) {
             return "Harap isi semua data!";
         }
 
@@ -35,12 +38,15 @@ class CustomerModel {
         }
 
         // Menghindari SQL injection dengan prepared statement
-        $stmt = mysqli_prepare($this->conn, "INSERT INTO customer (nama_customer, email_customer, password_customer, alamat_customer, telepon_customer) 
-                                             VALUES (?, ?, ?, ?, ?)");
-        mysqli_stmt_bind_param($stmt, "sssss", $nama, $email, $password, $alamat, $telepon);
+        $stmt = mysqli_prepare($this->conn, "INSERT INTO user (nama, email, password, alamat, telepon,role) 
+                                             VALUES (?, ?, ?, ?, ?, ?)");
+        mysqli_stmt_bind_param($stmt, "ssssss", $nama, $email, $password, $alamat, $telepon, $role);
 
         // Menjalankan prepared statement
         if(mysqli_stmt_execute($stmt)) {
+            //simpan ke dalam database local
+            $this->databaseBackup->backup();
+
             return "Registrasi berhasil";
         } else {
             return "Error: " . mysqli_stmt_error($stmt);
@@ -49,7 +55,7 @@ class CustomerModel {
 
     public function getCustomerByEmail($email) {
         // Menghindari SQL injection dengan prepared statement
-        $stmt = mysqli_prepare($this->conn, "SELECT * FROM customer WHERE email_customer = ?");
+        $stmt = mysqli_prepare($this->conn, "SELECT * FROM user WHERE email = ?");
         mysqli_stmt_bind_param($stmt, "s", $email);
 
         // Menjalankan prepared statement

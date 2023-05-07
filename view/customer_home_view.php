@@ -15,13 +15,13 @@
       referrerpolicy="no-referrer"
     />
     <!-- fonts -->
-    <link rel="stylesheet" href="font/fonts.css" />
+    <link rel="stylesheet" href="../Travel5/font/fonts.css" />
     <!-- normalize css -->
-    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="../Travel5/css/normalize.css" />
     <!-- custom css -->
-    <link rel="stylesheet" href="css/utility.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="../Travel5/css/utility.css" />
+    <link rel="stylesheet" href="../Travel5/css/style.css" />
+    <link rel="stylesheet" href="../Travel5/css/responsive.css" />
   </head>
   <body>
     <!-- navbar  -->
@@ -38,9 +38,6 @@
           <ul class="navbar-nav">
             <li class="nav-item">
               <a href="home.html" class="nav-link">Beranda</a>
-            </li>
-            <li class="nav-item">
-              <a href="gallery.html" class="nav-link">Galeri Foto</a>
             </li>
             <li class="nav-item">
               <a href="booknow.html" class="nav-link">Pesan Tiket</a>
@@ -81,16 +78,15 @@
       <div class="container">
         <div class="title-wrap">
           <span class="sm-title"
-            >Kenali Destinasi Wisata Terlebih Dahulu Sebelum Traveling
-            Anda!</span
+            >Kenali Destinasi Wisata Terbaik Dari Kami Sebelum Melakukan Travelling!</span
           >
-          <h2 class="lg-title">featured places</h2>
+          <h2 class="lg-title">best places</h2>
         </div>
 
         <div class="featured-row">
           <div class="featured-item my-2 shadow">
             <img
-              src="images/featured-reo-de-janeiro-brazil.jpg"
+              src="../Travel5/images/featured-reo-de-janeiro-brazil.jpg"
               alt="featured place"
             />
             <div class="featured-item-content">
@@ -110,7 +106,7 @@
 
           <div class="featured-item my-2 shadow">
             <img
-              src="images/featured-north-bondi-australia.jpg"
+              src="../Travel5/images/featured-north-bondi-australia.jpg"
               alt="featured place"
             />
             <div class="featured-item-content">
@@ -129,7 +125,7 @@
 
           <div class="featured-item my-2 shadow">
             <img
-              src="images/featured-berlin-germany.jpg"
+              src="../Travel5/images/featured-berlin-germany.jpg"
               alt="featured place"
             />
             <div class="featured-item-content">
@@ -148,7 +144,7 @@
 
           <div class="featured-item my-2 shadow">
             <img
-              src="images/featured-khwaeng-wat-arun-thailand.jpg"
+              src="../Travel5/images/featured-khwaeng-wat-arun-thailand.jpg"
               alt="featured place"
             />
             <div class="featured-item-content">
@@ -166,7 +162,7 @@
           </div>
 
           <div class="featured-item my-2 shadow">
-            <img src="images/featured-rome-italy.jpg" alt="featured place" />
+            <img src="../Travel5/images/featured-rome-italy.jpg" alt="featured place" />
             <div class="featured-item-content">
               <span>
                 <i class="fas fa-map-marker-alt"></i>
@@ -183,7 +179,7 @@
 
           <div class="featured-item my-2 shadow">
             <img
-              src="images/featured-fuvahmulah-maldives.jpg"
+              src="../Travel5/images/featured-fuvahmulah-maldives.jpg"
               alt="featured place"
             />
             <div class="featured-item-content">
@@ -222,7 +218,6 @@
               Nikmati kemewahan menginap di hotel kami dengan fasilitas dan
               pelayanan yang tak terlupakan.
             </p>
-            <a href="#" class="btn">Read more</a>
           </div>
 
           <div class="services-item">
@@ -235,7 +230,6 @@
               menjelajahi tempat indah di dunia. Nikmati pengalaman wisata yang
               terorganisir dengan baik bersama kami.
             </p>
-            <a href="#" class="btn">Read more</a>
           </div>
 
           <div class="services-item">
@@ -247,7 +241,6 @@
               Anda bisa menikmati liburan yang menyenangkan tanpa perlu khawatir
               tentang anggaran dengan memilih layanan kami.
             </p>
-            <a href="#" class="btn">Read more</a>
           </div>
         </div>
       </div>
@@ -271,7 +264,7 @@
               Terima kasih kepada mereka, liburan saya menjadi tak terlupakan!
             </p>
             <div class="test-item-info">
-              <img src="images/test-1.jpg" alt="testimonial" />
+              <img src="../Travel5/images/test-1.jpg" alt="testimonial" />
               <div>
                 <h3>Asep Kurniawan</h3>
                 <p class="text">Trip to Tokyo</p>
@@ -288,7 +281,7 @@
               liburan yang wajib dikunjungi.
             </p>
             <div class="test-item-info">
-              <img src="images/test-2.jpg" alt="testimonial" />
+              <img src="../Travel5/images/test-2.jpg" alt="testimonial" />
               <div>
                 <h3>Ucup Anugrah</h3>
                 <p class="text">Trip to Birmingham</p>
@@ -305,7 +298,7 @@
               sebagai tujuan liburan yang harus dikunjungi.
             </p>
             <div class="test-item-info">
-              <img src="images/test-3.jpg" alt="testimonial" />
+              <img src="../Travel5/images/test-3.jpg" alt="testimonial" />
               <div>
                 <h3>Siti Alimah</h3>
                 <p class="text">Trip to Texas</p>
@@ -321,7 +314,7 @@
     <section id="video">
       <div class="video-wrapper flex">
         <video loop>
-          <source src="videos/video-section.mp4" type="video/mp4" />
+          <source src="../Travel5/videos/video-section.mp4" type="video/mp4" />
         </video>
         <button type="button" id="play-btn">
           <i class="fas fa-play"></i>

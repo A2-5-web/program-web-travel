@@ -15,13 +15,13 @@
       referrerpolicy="no-referrer"
     />
     <!-- fonts -->
-    <link rel="stylesheet" href="font/fonts.css" />
+    <link rel="stylesheet" href="../Travel5/font/fonts.css" />
     <!-- normalize css -->
-    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="../Travel5/css/normalize.css" />
     <!-- custom css -->
-    <link rel="stylesheet" href="css/utility.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="../Travel5/css/utility.css" />
+    <link rel="stylesheet" href="../Travel5/css/style.css" />
+    <link rel="stylesheet" href="../Travel5/css/responsive.css" />
   </head>
   <body>
     <!-- navbar  -->
@@ -38,9 +38,6 @@
           <ul class="navbar-nav">
             <li class="nav-item">
               <a href="home.html" class="nav-link">Beranda</a>
-            </li>
-            <li class="nav-item">
-              <a href="gallery.html" class="nav-link">Galeri Foto</a>
             </li>
             <li class="nav-item">
               <a href="booknow.html" class="nav-link">Pesan Tiket</a>
