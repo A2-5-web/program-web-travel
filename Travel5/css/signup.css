@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap");
 * {
   font-family: "poppins", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 body {
   background-image: url("../images/header-bg.jpg");
@@ -9,100 +12,98 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
+
 .box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 90vh;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(26, 188, 156, 0.8);
+  max-width: 450px;
+  border-radius: 5px;
+  margin: 50px auto;
+  overflow: hidden;
+  opacity: 0.7;
 }
+
 .container {
-  width: 350px;
-  display: flex;
-  flex-direction: column;
-  padding: 0 15px 0 15px;
-}
-span {
-  color: #fff;
-  font-size: small;
-  display: flex;
-  justify-content: center;
-  padding: 10px 0 10px 0;
-}
-header {
-  color: #fff;
-  font-size: 40px;
-  font-weight: 800;
-  letter-spacing: 5px;
-  display: flex;
-  justify-content: center;
-  padding: 10px 0 10px 0;
+  padding: 30px;
 }
 
-.input-field .input {
-  height: 45px;
-  width: 87%;
-  border: none;
-  border-radius: 30px;
+.top {
+  background-color: #1abc9c;
   color: #fff;
-  font-size: 15px;
-  padding: 0 0 0 45px;
-  background: rgba(255, 255, 255, 0.2);
-  outline: none;
-  margin-bottom: 10px;
+  text-align: center;
+  padding: 10px 0;
 }
 
-.input-field i {
-  position: relative;
-  top: -40px;
-  left: 17px;
-  color: #fff;
+.top header {
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
-::-webkit-input-placeholder {
-  color: #fff;
-}
-.submit {
-  border: none;
-  border-radius: 30px;
-  font-size: 15px;
-  height: 45px;
-  outline: none;
+
+/* Register styles */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
   width: 100%;
-  color: black;
-  background: rgba(255, 255, 255, 0.7);
-  cursor: pointer;
-  transition: 0.3s;
+  padding: 15px;
+  border-radius: 5px;
+  border: none;
+  background-color: #f1f1f1;
+  margin-bottom: 15px;
+  font-size: 16px;
 }
-.submit:hover {
-  box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
-}
+
 .two-col {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  color: #fff;
-  font-size: small;
-  margin-top: 10px;
-}
-.one {
-  display: flex;
-}
-.two {
-  display: flex;
-}
-select {
-  background-color: rgba(255, 255, 255, 0.5);
-}
-label a {
-  text-decoration: none;
-  color: #fff;
+  align-items: center;
+  margin-bottom: 15px;
 }
 
+.two-col label {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.submit {
+  background-color: #1abc9c;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.3s ease-in-out;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.submit:hover {
+  background-color: #16a085;
+  transform: rotateY(10deg) scale(1.1);
+}
+
+/* Login styles */
 p {
-  color: #fff;
+  text-align: center;
+  margin-top: 15px;
 }
 
-p a{
-  text-decoration:none;
-  color: #000;
-  font-weight: 600;
+p a {
+  color: #1abc9c;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+/* Boxicons */
+.bx {
+  display: inline-block;
+  font-size: 20px;
+  margin-right: 10px;
+  color: #1abc9c;
 }
