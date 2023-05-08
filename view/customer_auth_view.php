@@ -101,7 +101,7 @@ if(isset($_GET['view']) && $_GET['view'] == 'register') {
 		<form action="../controller/customer_auth_controller.php" method="post">
         <div class="input-field">
           <i class="bx bx-user"></i>
-          <input type="text" class="input" placeholder="Username" name="username" />
+          <input type="email" class="input" placeholder="Email" name="email" />
         </div>
         
         <div class="input-field">
