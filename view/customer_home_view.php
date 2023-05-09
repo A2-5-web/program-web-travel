@@ -49,7 +49,7 @@
               <a href="contact.html" class="nav-link">Kontak</a>
             </li>
             <li class="nav-item">
-              <a href="customer_auth_view.php" class="nav-link">Daftar</a>
+              <a href="signup.html" class="nav-link">Daftar</a>
             </li>
           </ul>
         </div>

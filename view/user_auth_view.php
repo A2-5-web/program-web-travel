@@ -23,40 +23,40 @@ if(isset($_GET['view']) && $_GET['view'] == 'register') {
           <header>REGISTER</header>
         </div>
         <br />
-		<form action="../controller/user_auth_controller.php" method="post">
+		<form action="../controller/customer_auth_controller.php" method="post">
         <div class="input-field">
-          <input type="text" class="input" placeholder="Nama Lengkap" name="nama_user" />
+          <input type="text" class="input" placeholder="Nama Lengkap" name="nama" />
           <i class="bx bx-user"></i>
         </div>
+
         <div class="input-field">
-          <input type="number" class="input" placeholder="No. Handphone" name="no_user" />
-          <i class="bx bx-user"></i>
+          <input type="email" class="input" placeholder="Email" name="email" />
+          <i class="bx bx-envelope"></i>
+        </div>
+
+        <div class="input-field">
+          <input type="Password" class="input" placeholder="Password" name="password" />
+          <i class="bx bx-lock-alt"></i>
+        </div>
+
+        <div class="input-field">
+          <input type="Password" class="input" placeholder="Konfirmasi Password" name="password_confirmation" />
+          <i class="bx bx-lock-alt"></i>
         </div>
         <div class="input-field">
-          <input type="text" class="input" placeholder="Alamat Lengkap" name="alamat_user" />
+          <input type="text" class="input" placeholder="Alamat" name="alamat" />
+          <i class="bx bx-lock-alt"></i>
+        </div>
+        <div class="input-field">
+          <input type="text" class="input" placeholder="Nomor Telepon" name="telepon" />
           <i class="bx bx-lock-alt"></i>
         </div>
         <div class="two-col">
-          <label for="status">Daftar Sebagai :</label>
-          <select name="status" id="status">
+          <label for="role">Daftar Sebagai :</label>
+          <select name="role" id="role">
             <option value="customer">Customer</option>
             <option value="agen_travel">Agen Travel</option>
           </select>
-        </div>
-        <div class="two-col">
-          <label for="role">Jenis Kelamin :</label>
-          <select name="jk" id="jk">
-            <option value="L">Laki - Laki</option>
-            <option value="P">Perempuan</option>
-          </select>
-        </div>
-        <div class="input-field">
-          <input type="text" class="input" placeholder="Username" name="username" />
-          <i class="bx bx-lock-alt"></i>
-        </div>
-        <div class="input-field">
-          <input type="password" class="input" placeholder="Password" name="password" />
-          <i class="bx bx-lock-alt"></i>
         </div>
 
         <div class="input-field">
@@ -98,9 +98,9 @@ if(isset($_GET['view']) && $_GET['view'] == 'register') {
           <header>LOGIN</header>
         </div>
         <br />
-		<form action="../controller/user_auth_controller.php" method="post">
+		<form action="../controller/customer_auth_controller.php" method="post">
         <div class="input-field">
-          <input type="text" class="input" placeholder="Username" name="username" />
+          <input type="text" class="input" placeholder="E-Mail" name="email" />
           <i class="bx bx-user"></i>
         </div>
 

@@ -47,19 +47,19 @@ $result = mysqli_query($conn, $query);
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="#">Beranda</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Gallery</a>
+                <a class="nav-link" href="#">Galeri Foto</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Packages</a>
+                <a class="nav-link" href="#">Pesan Tiket</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="#">Tentang Kami</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link" href="#">Kontak</a>
               </li>
             </ul>
           </div>
