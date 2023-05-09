@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Gallery</title>
+    <title>Book Now</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- font awesome cdn -->
@@ -37,10 +37,10 @@
           </button>
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a href="home.html" class="nav-link">Beranda</a>
+              <a href="customer_home_view.php" class="nav-link">Beranda</a>
             </li>
             <li class="nav-item">
-              <a href="booknow.html" class="nav-link">Pesan Tiket</a>
+              <a href="customer_book_view.php" class="nav-link">Pesan Tiket</a>
             </li>
             <li class="nav-item">
               <a href="about.html" class="nav-link">Tentang Kami</a>
@@ -57,126 +57,65 @@
     </nav>
 
     <!-- end of navbar  -->
-
     <!-- header -->
     <header class="flex header-sm">
       <div class="container">
         <div class="header-title">
-          <h1>Gallery</h1>
+          <h1>Pesan</h1>
           <p>
-            Melalui galeri ini, Anda akan diajak untuk terhanyut dalam pesona
-            keindahan dan kreativitas yang memukau
+            Temukan pengalaman liburan yang tak terlupakan dengan paket-paket
+            kami. Segera booking sekarang dan jadilah bagian dari petualangan
+            seru bersama kami!
           </p>
         </div>
       </div>
     </header>
     <!-- header -->
-
-    <!-- gallery section -->
+    <!-- booknow -->
     <div class="title-wrap">
-      <span class="sm-title">Menikmati Pesona Wisata melalui Lensa Kamera</span>
-      <h2 class="lg-title">Galeri Foto</h2>
+      <span class="sm-title"
+        >Jangan lewatkan kesempatan untuk menjelajahi dunia!</span
+      >
+      <h2 class="lg-title">Form Order</h2>
     </div>
-    <div class="carousel">
-      <div class="carousel-item">
-        <div class="carousel-box">
-          <div class="title">Paris</div>
-          <div class="num">01</div>
-          <img
-            src="https://media.istockphoto.com/id/949299844/it/foto/vista-prospettica-dellesterno-delledificio-contemporaneo.jpg?s=612x612&w=0&k=20&c=_DR1aRHuTEV3EYBJo1ZXq1pF4SgwB9EVWQLaBj4sC5g="
-          />
-        </div>
+    <form class="box">
+      <div class="form-group">
+        <label for="nama-penumpang">Nama Penumpang</label>
+        <input type="text" id="nama-penumpang" name="nama-penumpang" />
       </div>
-      <div class="carousel-item">
-        <div class="carousel-box">
-          <div class="title">Warsaw</div>
-          <div class="num">02</div>
-          <img
-            src="https://media.istockphoto.com/id/1150545984/it/foto/palazzo-moderno-di-lusso-con-piscina.jpg?s=612x612&w=0&k=20&c=Pbrai_VGc9tUviMCF1UaBErdS1YGyIVWsD29jzMZwTY="
-          />
-        </div>
+      <div class="form-group">
+        <label for="alamat-penumpang">Alamat Penumpang</label>
+        <textarea id="alamat-penumpang" name="alamat-penumpang"></textarea>
       </div>
-
-      <div class="carousel-item">
-        <div class="carousel-box">
-          <div class="title">Madrid</div>
-          <div class="num">03</div>
-          <img
-            src="https://media.istockphoto.com/id/1214351345/it/foto/guardando-direttamente-lo-skyline-del-quartiere-finanziario-nel-centro-di-londra-immagine-di.jpg?s=612x612&w=0&k=20&c=oNNbPzPvcQ-4RA6AeatNIxHQIafBiXmDRtUUY0Ska-I="
-          />
-        </div>
+      <div class="form-group">
+        <label for="tanggal-pesan">Tanggal Pesan</label>
+        <input type="date" id="tanggal-pesan" name="tanggal-pesan" />
       </div>
-
-      <div class="carousel-item">
-        <div class="carousel-box">
-          <div class="title">Sydney</div>
-          <div class="num">04</div>
-          <img
-            src="https://media.istockphoto.com/id/904390980/it/foto/foto-di-architettura-contemporanea-astratta.jpg?s=612x612&w=0&k=20&c=_P4Wmx5nq5MeDuimpNklKCBlrLovmCyd9lfiMKeJZDs="
-          />
-        </div>
+      <div class="form-group">
+        <label for="tanggal-berangkat">Tanggal Berangkat</label>
+        <input type="date" id="tanggal-berangkat" name="tanggal-berangkat" />
       </div>
-
-      <div class="carousel-item">
-        <div class="carousel-box">
-          <div class="title">Istanbul</div>
-          <div class="num">05</div>
-          <img
-            src="https://media.istockphoto.com/id/130408311/it/foto/piscina-allesterno-della-casa-moderna-al-crepuscolo.jpg?s=612x612&w=0&k=20&c=ZoVjx7uDjoHKmpM1ayW6UR1SQOoYh_xx-QMG_qeOYs0="
-          />
-        </div>
+      <div class="form-group">
+        <label for="jam-berangkat">Jam Berangkat</label>
+        <input type="time" id="jam-berangkat" name="jam-berangkat" />
       </div>
-
-      <div class="carousel-item">
-        <div class="carousel-box">
-          <div class="title">Prague</div>
-          <div class="num">06</div>
-          <img
-            src="https://media.istockphoto.com/id/1299954175/it/foto/villa-cubica-moderna.jpg?s=612x612&w=0&k=20&c=DhGhb3c1E3DW_fbrWJ_R_Zh0Lbwu6syFeRLsKlZ9no8="
-          />
-        </div>
+      <div class="form-group">
+        <label for="kode-tiket">Kode Tiket</label>
+        <select id="kode-tiket" name="kode-tiket">
+          <option value="1">Eiffel Tower, Paris - $1200</option>
+          <option value="2">Machu Picchu, Peru - $1000</option>
+          <option value="3">Acropolis, Athens - $900</option>
+          <option value="4">Bali, Indonesia - $1000</option>
+          <option value="5">Dubai, United Arab Emirates - $1000</option>
+          <option value="6">Bhutan - $600</option>
+          <option value="7">Havana, Cuba - $500</option>
+          <option value="8">Moskva, Russia - $1000</option>
+        </select>
       </div>
-
-      <div class="carousel-item">
-        <div class="carousel-box">
-          <div class="title">Munich</div>
-          <div class="num">07</div>
-          <img
-            src="https://media.istockphoto.com/id/926689776/it/foto/vista-ad-angolo-basso-dei-grattacieli-di-new-york.jpg?s=612x612&w=0&k=20&c=DmEB0Ty7ZwDnBoU5SuA8FNevOp4G1UcECw5aS4vA9A8="
-          />
-        </div>
-      </div>
-
-      <div class="carousel-item">
-        <div class="carousel-box">
-          <div class="title">Venice</div>
-          <div class="num">08</div>
-          <img
-            src="https://media.istockphoto.com/id/1191376167/it/foto/villa-dellisola.jpg?s=612x612&w=0&k=20&c=PKslWo4FdbjinohKQlK_oWL34jqAsnzMTdy2bxEAf-I="
-          />
-        </div>
-      </div>
-
-      <div class="carousel-item">
-        <div class="carousel-box">
-          <div class="title">Oslo</div>
-          <div class="num">09</div>
-          <img
-            src="https://media.istockphoto.com/id/184316397/it/foto/londra-edifici-aziendali.jpg?s=612x612&w=0&k=20&c=XqrRxEPzFnwRFk7PQrCiu9-FPfCTPyMe5BKKaxYXCs8="
-          />
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="carousel-box">
-          <div class="title">London</div>
-          <div class="num">10</div>
-          <img
-            src="https://media.istockphoto.com/id/184619832/it/foto/distretto-finanziario-al-crepuscolo-londra.jpg?s=612x612&w=0&k=20&c=RAThrJOBY6vhlT6-kQpu9-9jLEzWToYfdw46S8B0Mu0="
-          />
-        </div>
-      </div>
-    </div>
-    <!-- end of gallery section -->
+      <button type="submit">Pesan Tiket</button>
+    </form>
+    <br /><br /><br />
+    <!-- end of booknow section -->
 
     <!-- footer -->
     <footer class="py-4">
@@ -247,7 +186,6 @@
       </div>
     </footer>
     <!-- end of footer -->
-
     <!-- js -->
     <script src="js/script.js"></script>
     <script src="js/gallery.js"></script>

@@ -1,12 +1,12 @@
 <?php
 require_once "../database/save_to_local.php";
 
-class CustomerModel {
+class UserModel {
     private $conn;
     private $databaseBackup;
     public function __construct() {
         // Membuat koneksi ke database
-        $this->conn = mysqli_connect('db4free.net', 'kelompok_5', 'kelompok_5', 'travel');
+        $this->conn = mysqli_connect('localhost', 'root', '', 'db_travel');
         if(!$this->conn) {
             die("Koneksi gagal: " . mysqli_connect_error());
         }
@@ -19,28 +19,15 @@ class CustomerModel {
         mysqli_close($this->conn);
     }
 
-    public function addCustomer($nama, $email, $password, $alamat, $telepon, $role) {
-        // Validasi input
-        if(empty($nama) || empty($email) || empty($password) || empty($alamat) || empty($telepon) || empty($role)) {
-            return "Harap isi semua data!";
-        }
-
-        if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            return "Email tidak valid!";
-        }
-
-        if(strlen($password) < 6) {
-            return "Password minimal 6 karakter!";
-        }
-
+    public function addUser($nama, $telepon, $alamat, $status, $jenis_kelamin, $username,$password_hashed) {
         if(!preg_match("/^[0-9]+$/", $telepon)) {
             return "Telepon hanya boleh berisi angka!";
         }
 
         // Menghindari SQL injection dengan prepared statement
-        $stmt = mysqli_prepare($this->conn, "INSERT INTO user (nama, email, password, alamat, telepon,role) 
-                                             VALUES (?, ?, ?, ?, ?, ?)");
-        mysqli_stmt_bind_param($stmt, "ssssss", $nama, $email, $password, $alamat, $telepon, $role);
+        $stmt = mysqli_prepare($this->conn, "INSERT INTO user (nama_user,no_user,alamat_user,status,jenis_kelamin,username,password) 
+                                             VALUES (?, ?, ?, ?, ?, ?, ?)");
+        mysqli_stmt_bind_param($stmt, "sssssss", $nama, $telepon, $alamat, $status, $jenis_kelamin, $username,$password_hashed);
 
         // Menjalankan prepared statement
         if(mysqli_stmt_execute($stmt)) {
@@ -53,10 +40,10 @@ class CustomerModel {
         }
     }
 
-    public function getCustomerByEmail($email) {
+    public function getUserByUsername($username) {
         // Menghindari SQL injection dengan prepared statement
-        $stmt = mysqli_prepare($this->conn, "SELECT * FROM user WHERE email = ?");
-        mysqli_stmt_bind_param($stmt, "s", $email);
+        $stmt = mysqli_prepare($this->conn, "SELECT * FROM user WHERE username = ?");
+        mysqli_stmt_bind_param($stmt, "s", $username);
 
         // Menjalankan prepared statement
         if(mysqli_stmt_execute($stmt)) {
