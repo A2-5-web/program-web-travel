@@ -57,17 +57,8 @@ CREATE TABLE `user` (
   `telepon` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `role` varchar(255) NOT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=336 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=337 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 INSERT INTO user VALUES('324','Raihan Daiva Geralda','daivageralda831@gmail.com','$2y$10$VyVpm5Ug6N.Ie6TmxtjwGOhsrflwfurnAPzD3g3EzKfGx2jEV1qKW','Jalan Ulin Gang 2','089628270851','customer');
 INSERT INTO user VALUES('325','Rahmad Fitrianto','antonaksmd@gmail.com','$2y$10$iN8qgkgwxc99S9HVxKwOm.0kvKZgmPbEWA1emr7J/wd/DUz7YuWXi','Jl. Sejati','089812334545','customer');
-INSERT INTO user VALUES('326','Rahmad Fitrianto','antonaksmd@gmail.com','$2y$10$DVVj5UF6OgfZs0mrqIbqFOwxNozL5nqauzS4W6F/ipCWVDDwxEB.i','Jl. Sejati','089812334545','customer');
-INSERT INTO user VALUES('327','Rahmad Fitrianto','antonaksmd@gmail.com','$2y$10$l1169ZuQ0oGNkZNE.b1MH.m5uAKc0GubDbVMZ.8m2cXAn2u9sD1DC','Jl. Sejati','089812334545','customer');
-INSERT INTO user VALUES('328','Rahmad Fitrianto','antonaksmd@gmail.com','$2y$10$arOQY09jJp7fSzNdEydTre.sR1jmKvyY7gzP7l32KpTYjLDB9Noj.','Jl. Sejati','089812334545','customer');
-INSERT INTO user VALUES('329','Rahmad Fitrianto','antonaksmd@gmail.com','$2y$10$sisaIiZGdHdLx.DqIvqbdeSlJPPulPKPfyHRiOg0aJzxdRt7jtkSG','Jl. Sejati','089812334545','customer');
-INSERT INTO user VALUES('330','Rahmad Fitrianto','antonaksmd@gmail.com','$2y$10$2dLKKgVurV5Ce7jtqbFVt.riKUvuOVN7xt9kod0bK3FyyYoCiWhvm','Jl. Sejati','089812334545','customer');
-INSERT INTO user VALUES('331','Rahmad Fitrianto','antonaksmd@gmail.com','$2y$10$0C962EgiOzk0jj44.Ktj9uboftA8giUQTwhzPm0ydVH1iPwdobGAW','Jl. Sejati','089812334545','customer');
-INSERT INTO user VALUES('332','Rahmad Fitrianto','antonaksmd@gmail.com','$2y$10$QGnQ8vkL5x/uxzirr31Jte4Y0WmLNa3wSfyk1sSJvKMPW0MKAUPvC','Jl. Sejati','089812334545','customer');
-INSERT INTO user VALUES('333','Rahmad Fitrianto','antonaksmd@gmail.com','$2y$10$FR7axeYKZc/AMS60i3NoMOm.Xtd3WyNqRSCbHo3DQiS1B1Dz1ZDje','Jl. Sejati','089812334545','customer');
-INSERT INTO user VALUES('334','Rahmad Fitrianto','antonaksmd@gmail.com','$2y$10$ZdMxWk8te6ab7vg3w5H5O.QXJ7UfE2gH4ekRvNgwrhNOx8Kyrk/zO','Jl. Sejati','089812334545','customer');
-INSERT INTO user VALUES('335','Rahmad Fitrianto','antonaksmd@gmail.com','$2y$10$nBRAhxOpDLxHqiua4DhtiOEf2aoKZ/zWaz4Kdtu8SLu2nXedmIXkW','Jl. Sejati','089812334545','customer');
+INSERT INTO user VALUES('336','Asep ','asep123@gmail.com','$2y$10$n2SJlT5xCKv9/MnVrmRSlujKW0nxAebiFrd3YAYiD2kgkJ20rA2zO','Jl. Sejati','081298986543','customer');
 
