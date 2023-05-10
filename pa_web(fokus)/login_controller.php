@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 </html>
 <?php
@@ -42,17 +43,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Redirect ke halaman sesuai status pengguna
         if ($status == "customer") {
-            header("Location: customer.php");
-            exit();
+            echo "<script>
+                swal('Selamat', 'Login Berhasil', 'success').then(function() {
+                    window.location.href = 'agen.php';
+                });
+            </script>";
         } elseif ($status == "travel_agent") {
-            header("Location: agen_beranda.php");
-            exit();
+            echo "<script>
+                swal('Selamat', 'Login Berhasil', 'success').then(function() {
+                    window.location.href = 'agen_beranda.php';
+                });
+            </script>";
         } else {
-            echo "Invalid user status.";
+            echo "<script>
+                swal('Gagal', 'Status Pengguna Tidak Valid', 'error').then(function() {
+                    window.location.href = 'auth_form.php';
+                });
+            </script>";
         }
     } else {
         // Jika data tidak ditemukan, tampilkan pesan error
-        echo "<script>swal( 'Oops' ,  'Something went wrong!' ,  'error' );</script>";
+        echo "<script>
+                swal('Gagal', 'Username atau password salah', 'error').then(function() {
+                    window.location.href = 'auth_form.php';
+                });
+            </script>";
     }
 }
 

@@ -1,7 +1,6 @@
 <?php
 // Mendefinisikan nilai awal view
 $view = "login";
-
 // Cek apakah nilai view berubah dari parameter GET
 if(isset($_GET['view']) && $_GET['view'] === "register") {
     $view = "register";
