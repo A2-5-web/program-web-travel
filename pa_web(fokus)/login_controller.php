@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: customer.php");
             exit();
         } elseif ($status == "travel_agent") {
-            header("Location: agen_view.php");
+            header("Location: agen_beranda.php");
             exit();
         } else {
             echo "Invalid user status.";
