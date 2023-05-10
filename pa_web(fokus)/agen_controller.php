@@ -12,7 +12,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
     exit;
 }
-
+//----------------------LOGOUT--------------------------//
 if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     // Hapus session id_user
     unset($_SESSION['id_user']);
@@ -20,8 +20,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     header('Location: auth_form.php');
     exit;
 }
-
-
 
 //----------------------TAMBAH DATA-----------------------//
 // percabangan untuk menangani klik tombol submit pada form tambah data
@@ -34,10 +32,8 @@ if (isset($_POST['tambah'])) {
     $durasi = $_POST['durasi'];
     $gambar = $_FILES['gambar']['name'];
     $gambar_tmp = $_FILES['gambar']['tmp_name'];
-
     tambah_data($nama, $destinasi, $deskripsi, $paket_tour, $durasi, $harga, $gambar, $gambar_tmp);
 }
-
 function tambah_data($nama, $destinasi, $deskripsi, $paket_tour, $durasi, $harga, $gambar, $gambar_tmp) {
     global $conn;
 
@@ -48,16 +44,13 @@ function tambah_data($nama, $destinasi, $deskripsi, $paket_tour, $durasi, $harga
     $deskripsi = mysqli_real_escape_string($conn, $deskripsi);
     $paket_tour = $paket_tour;
     $durasi = $durasi;
-
     // membuat path file tujuan
     $path = "img/" . basename($gambar);
     // mengambil nama file gambar
     $nama_gambar = basename($gambar);
-
     // query untuk menambahkan data ke tabel db_travel
     $query = "INSERT INTO paket (id_user,nama_paket, destinasi, deskripsi, paket_tour, durasi, harga, nama_gambar) VALUES ($id_user,'$nama', '$destinasi', '$deskripsi', '$paket_tour', '$durasi', '$harga', '$nama_gambar')";
     $result = mysqli_query($conn, $query);
-
     if ($result) {
         // jika query berhasil, pindahkan file ke folder uploads
         if (move_uploaded_file($gambar_tmp, $path)) {
@@ -82,7 +75,6 @@ function tampil_data($order_by,$id_user){
     return $result;
 }
 
-
 //----------------------UBAH DATA-----------------------//
 // percabangan untuk menangani klik tombol submit pada form tambah data
 if(isset($_POST['ubah'])){
@@ -95,7 +87,6 @@ if(isset($_POST['ubah'])){
     $harga = $_POST['harga'];
     $gambar = $_FILES['gambar']['name'];
     $gambar_tmp = $_FILES['gambar']['tmp_name'];
-
     if(empty($nama) || empty($destinasi) || empty($deskripsi) || empty($paket_tour) || empty($durasi) || empty($harga)){
         // jika ada input yang kosong, tampilkan pesan error
         echo "Silakan lengkapi semua data!";
@@ -108,8 +99,6 @@ if(isset($_POST['ubah'])){
         ubah_data($id_paket,$nama, $destinasi, $deskripsi, $paket_tour, $durasi, $harga, $gambar, $gambar_tmp);
     }
 }
-
-
 function ubah_data($id_paket, $nama_paket, $destinasi, $deskripsi, $paket_tour, $durasi, $harga, $gambar, $gambar_tmp){
     global $conn;
 	    // membuat path file tujuan
@@ -133,21 +122,17 @@ function ubah_data($id_paket, $nama_paket, $destinasi, $deskripsi, $paket_tour, 
         echo "Gagal menambahkan data: " . mysqli_error($conn);
     }
 }
-
 //----------------------HAPUS DATA-----------------------//
 if(isset($_GET['hapus'])){
     $id_paket = $_GET['hapus'];
     // panggil fungsi hapus_data untuk menghapus data dari tabel db_travel
     hapus_data($id_paket);
 }
-
 function hapus_data($id_paket) {
     global $conn;
-
     // query untuk menghapus data
     $query = "DELETE FROM paket WHERE id_paket = '$id_paket'";
     $result = mysqli_query($conn, $query);
-
     // mengecek apakah data berhasil dihapus atau tidak
     if ($result) {
         header("location: agen_tiket.php");
