@@ -36,11 +36,14 @@
             <i class="fas fa-times"></i>
           </button>
           <ul class="navbar-nav">
-            <li class="nav-item">
-              <a href="customer_home_view.php" class="nav-link">Beranda</a>
+          <li class="nav-item">
+              <a href="home.html" class="nav-link">Beranda</a>
             </li>
             <li class="nav-item">
-              <a href="customer_book_view.php" class="nav-link">Pesan Tiket</a>
+              <a href="gallery.html" class="nav-link">Galeri Foto</a>
+            </li>
+            <li class="nav-item">
+              <a href="booknow.html" class="nav-link">Pesan Tiket</a>
             </li>
             <li class="nav-item">
               <a href="about.html" class="nav-link">Tentang Kami</a>
@@ -49,7 +52,9 @@
               <a href="contact.html" class="nav-link">Kontak</a>
             </li>
             <li class="nav-item">
-              <a href="signup.html" class="nav-link">Daftar</a>
+              <a href="../view/customer_auth_view.php" class="nav-link"
+                >Daftar</a
+              >
             </li>
           </ul>
         </div>
