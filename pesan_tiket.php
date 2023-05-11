@@ -14,7 +14,7 @@ if (!$conn) {
 }
 
 // Handle input data
-if(isset($_POST['tambah'])){
+if(isset($_POST['pesan'])){
     $tglpesan = $_POST['tanggal_pemesanan'];
     $tglberangkat = $_POST['tanggal_berangkat'];
     $tglpulang = $_POST['tanggal_pulang'];
@@ -24,11 +24,11 @@ if(isset($_POST['tambah'])){
         echo "Silakan lengkapi semua data!";
     } else {
         $id_user = $_SESSION['id_user'];
-        $query = "INSERT INTO pesan (id_user,tanggal_pemesanan, tanggal_berangkat, tanggal_pulang, total_pembayaran) VALUES (?, ?, ?, ?, ?)";
+        $query = "INSERT INTO pesan (id_user, tanggal_pemesanan, tanggal_berangkat, tanggal_pulang, total_pembayaran) VALUES (?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($conn, $query);
         mysqli_stmt_bind_param($stmt, 'issss', $id_user, $tglpesan, $tglberangkat, $tglpulang, $totalharga);
         if (mysqli_stmt_execute($stmt)) {
-            header('Location: agen_tiket.php');
+            header('Location: pesan_tiket.php');
             exit();
         } else {
             echo "Gagal menambahkan data: " . mysqli_error($conn);
@@ -65,7 +65,7 @@ function tampil_data($order_by, $id_user){
 	<nav>
         <div class="navbar">
         <div class="logo">Travel</div>
-        <div class="logout"><a href="#">Logout</a></div>
+        <div class="logout"><a href="index.php">Logout</a></div>
         </div>
     </nav>
 	<div class="container mt-3">
@@ -104,11 +104,11 @@ function tampil_data($order_by, $id_user){
 			</tbody>
 		</table>
 	</div>
-	<div class="modal fade" id="pesanTiket" tabindex="-1" role="dialog" aria-labelledby="pesanTiketLabel" aria-hidden="true">
+	<div class="modal fade" id="pesanTiket" tabindex="-1" role="dialog" aria-labelledby="pesanTiket" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="tambahModalLabel">Pesan Paket Travel</h5>
+					<h5 class="modal-title" id="pesanTiket">Pesan Paket Travel</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
@@ -116,20 +116,20 @@ function tampil_data($order_by, $id_user){
 				<div class="modal-body">
 					<form method="post" action="#">
 						<div class="form-group">
-							<label for="tglpesan">Tanggal Pemesanan:</label>
-							<input type="datetime-local" class="form-control" id="tglpesan" name="tglpesan" required>
+							<label for="tanggal_pemesanan">Tanggal Pemesanan:</label>
+							<input type="datetime-local" class="form-control" id="tanggal_pemesanan" name="tanggal_pemesanan" required>
 						</div>
 						<div class="form-group">
-							<label for="tglberangkat">Tanggal Berangkat:</label>
-							<input type="datetime-local" class="form-control" id="tglberangkat" name="tglberangkat" required>
+							<label for="tanggal_berangkat">Tanggal Berangkat:</label>
+							<input type="datetime-local" class="form-control" id="tanggal_berangkat" name="tanggal_berangkat" required>
 						</div>
 						<div class="form-group">
-							<label for="tglpulang">Tanggal Pulang:</label>
-							<input type="datetime-local" class="form-control" id="tglpulang" name="tglpulang" required>
+							<label for="tanggal_pulang">Tanggal Pulang:</label>
+							<input type="datetime-local" class="form-control" id="tanggal_pulang" name="tanggal_pulang" required>
 						</div>
 						<div class="form-group">
-							<label for="totalharga">Total Harga:</label>
-							<input type="number" class="form-control" id="totalharga" name="totalharga" required>
+							<label for="total_pembayaran">Total Harga:</label>
+							<input type="number" class="form-control" id="total_pembayaran" name="total_pembayaran" required>
 						</div>
 						<button type="submit" class="btn btn-primary" name="pesan">Pesan</button>
 					</form>
