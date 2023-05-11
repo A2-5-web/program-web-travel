@@ -25,34 +25,35 @@ if(isset($_GET['view']) && $_GET['view'] == 'register') {
         <br />
 		<form action="../controller/customer_auth_controller.php" method="post">
         <div class="input-field">
-          <input type="text" class="input" placeholder="Nama Lengkap" name="nama" />
           <i class="bx bx-user"></i>
+          <input type="text" class="input" placeholder="Nama Lengkap" name="nama" />
         </div>
 
         <div class="input-field">
-          <input type="email" class="input" placeholder="Email" name="email" />
           <i class="bx bx-envelope"></i>
+          <input type="email" class="input" placeholder="Email" name="email" />
         </div>
 
         <div class="input-field">
+          <i class="bx bx-lock-alt"></i>
           <input type="Password" class="input" placeholder="Password" name="password" />
-          <i class="bx bx-lock-alt"></i>
         </div>
 
         <div class="input-field">
+          <i class="bx bx-lock-alt"></i>
           <input type="Password" class="input" placeholder="Konfirmasi Password" name="password_confirmation" />
-          <i class="bx bx-lock-alt"></i>
         </div>
         <div class="input-field">
+          <i class="bx bx-map"></i>
           <input type="text" class="input" placeholder="Alamat" name="alamat" />
-          <i class="bx bx-lock-alt"></i>
         </div>
         <div class="input-field">
+          <i class="bx bx-phone"></i>
           <input type="text" class="input" placeholder="Nomor Telepon" name="telepon" />
-          <i class="bx bx-lock-alt"></i>
         </div>
         <div class="two-col">
-          <label for="role">Daftar Sebagai :</label>
+          <i class="bx bx-user"></i>
+          <label for="role">Role</label>
           <select name="role" id="role">
             <option value="customer">Customer</option>
             <option value="agen_travel">Agen Travel</option>
@@ -62,6 +63,7 @@ if(isset($_GET['view']) && $_GET['view'] == 'register') {
         <div class="input-field">
           <input type="submit" name="submit_register" class="submit" value="Register"/>
         </div>
+        <br>
         <div class="two-col">
           <div class="one">
             <input type="checkbox" name="" id="check" />
@@ -100,13 +102,13 @@ if(isset($_GET['view']) && $_GET['view'] == 'register') {
         <br />
 		<form action="../controller/customer_auth_controller.php" method="post">
         <div class="input-field">
+          <i class="bx bx-envelope"></i>
           <input type="text" class="input" placeholder="E-Mail" name="email" />
-          <i class="bx bx-user"></i>
         </div>
 
         <div class="input-field">
-          <input type="Password" class="input" placeholder="Password" name="password" />
           <i class="bx bx-lock-alt"></i>
+          <input type="Password" class="input" placeholder="Password" name="password" />
         </div>
 
         <div class="input-field">
