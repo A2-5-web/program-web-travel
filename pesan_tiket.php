@@ -1,121 +1,139 @@
 <?php
-//koneksi ke database
-$conn = mysqli_connect("db4free.net", "kelompok_5", "kelompok_5", "travel");
+session_start();
 
-//query untuk mengambil data dari tabel
-$query = "SELECT * FROM paket_wisata";
+// Koneksi ke database
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "db_travel";
 
-//eksekusi query
-$result = mysqli_query($conn, $query);
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// Handle input data
+if(isset($_POST['tambah'])){
+    $tglpesan = $_POST['tanggal_pemesanan'];
+    $tglberangkat = $_POST['tanggal_berangkat'];
+    $tglpulang = $_POST['tanggal_pulang'];
+    $totalharga = $_POST['total_pembayaran'];
+
+    if(empty($tglpesan) || empty($tglberangkat) || empty($tglpulang) || empty($totalharga)){
+        echo "Silakan lengkapi semua data!";
+    } else {
+        $id_user = $_SESSION['id_user'];
+        $query = "INSERT INTO pesan (id_user,tanggal_pemesanan, tanggal_berangkat, tanggal_pulang, total_pembayaran) VALUES (?, ?, ?, ?, ?)";
+        $stmt = mysqli_prepare($conn, $query);
+        mysqli_stmt_bind_param($stmt, 'issss', $id_user, $tglpesan, $tglberangkat, $tglpulang, $totalharga);
+        if (mysqli_stmt_execute($stmt)) {
+            header('Location: agen_tiket.php');
+            exit();
+        } else {
+            echo "Gagal menambahkan data: " . mysqli_error($conn);
+        }
+        mysqli_stmt_close($stmt);
+    }
+}
+
+// Handle tampil data
+function tampil_data($order_by, $id_user){
+    global $conn;
+    $query = "SELECT * FROM pesan WHERE id_user=? ORDER BY $order_by ASC";
+    $stmt = mysqli_prepare($conn, $query);
+    mysqli_stmt_bind_param($stmt, 'i', $id_user);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    mysqli_stmt_close($stmt);
+    return $result;
+}
 ?>
-
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
-      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
-    <header class="header" data-header>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Travel</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Beranda</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Galeri Foto</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Pesan Tiket</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Tentang Kami</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Kontak</a>
-              </li>
-            </ul>
-          </div>
-          <ul class="navbar nav ms-auto">
-            <li class="nav-item">
-                <button type="button" class="btn btn-outline-primary">PESAN TIKET</button>
-            </li>
-          </ul>
+<html>
+<head>
+	<title>Data Pesanan Paket Travel</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<nav>
+        <div class="navbar">
+        <div class="logo">Travel</div>
+        <div class="logout"><a href="#">Logout</a></div>
         </div>
-      </nav>
-    </header>
-
-    <!-- PESAN TIKET -->
-    <div class="title-wrap">
-        <span class="sm-title"
-            >Jangan lewatkan kesempatan untuk menjelajahi dunia!</span
-        >
-      <h2 class="lg-title">Form Order</h2>
-    </div>
-    <form class="box">
-      <div class="form-group">
-        <label for="nama-penumpang">Nama Penumpang</label>
-        <input type="text" id="nama-penumpang" name="nama-penumpang" />
-      </div>
-      <div class="form-group">
-        <label for="alamat-penumpang">Alamat Penumpang</label>
-        <textarea id="alamat-penumpang" name="alamat-penumpang"></textarea>
-      </div>
-      <div class="form-group">
-        <label for="tanggal-pesan">Tanggal Pesan</label>
-        <input type="date" id="tanggal-pesan" name="tanggal-pesan" />
-      </div>
-      <div class="form-group">
-        <label for="tanggal-berangkat">Tanggal Berangkat</label>
-        <input type="date" id="tanggal-berangkat" name="tanggal-berangkat" />
-      </div>
-      <div class="form-group">
-        <label for="jam-berangkat">Jam Berangkat</label>
-        <input type="time" id="jam-berangkat" name="jam-berangkat" />
-      </div>
-      <div class="form-group">
-        <label for="kode-tiket">Kode Tiket</label>
-        <select id="kode-tiket" name="kode-tiket">
-            <?php
-            while($data = mysqli_fetch_assoc($result)) {
-            ?>
-            <option value="<?php echo $data['id_paket']; ?>"><?php echo $data['nama_paket']; ?> - $<?php echo $data['harga_paket']; ?></option>
-            <?php
-            }
-            ?>
-        </select>
-      </div>
-      <button type="submit">Pesan Tiket</button>
-    </form>
-    <br /><br /><br />
-    <!-- PESAN TIKET -->
-
-  </body>
-</html>
+    </nav>
+	<div class="container mt-3">
+		<h2 class="text-center">Tampil Data Pesanan Paket Travel</h2>
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pesanTiket">Pesan Tiket Travel</button>
+		<table id="myTable" class="table table-bordered">
+			<thead>
+				<tr>
+					<th>No.</th>
+					<th>Tanggal Pemesanan</th>
+					<th>Tanggal Berangkat</th>
+					<th>Tanggal Pulang</th>
+					<th>Total Harga</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php
+				$order_by = isset($_GET['order_by']) ? $_GET['order_by'] : 'tanggal_pemesanan';
+				$query = tampil_data($order_by,$_SESSION['id_user']);
+				if(mysqli_num_rows($query) == 0){
+					echo '<tr><td colspan="6">Tidak ada data!</td></tr>';
+				}else{
+					$no = 1;
+					while($data = mysqli_fetch_assoc($query)){
+						echo '<tr>';
+						echo '<td>'.$no.'</td>';
+						echo '<td>'.$data['tanggal_pemesanan'].'</td>';
+						echo '<td>'.$data['tanggal_berangkat'].'</td>';
+						echo '<td>'.$data['tanggal_pulang'].'</td>';
+						echo '<td>Rp '.number_format($data['total_pembayaran'], 0, ',', '.').'</td>';
+						echo '</tr>';
+						$no++;
+					}
+				}
+				?>
+			</tbody>
+		</table>
+	</div>
+	<div class="modal fade" id="pesanTiket" tabindex="-1" role="dialog" aria-labelledby="pesanTiketLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="tambahModalLabel">Pesan Paket Travel</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form method="post" action="#">
+						<div class="form-group">
+							<label for="tglpesan">Tanggal Pemesanan:</label>
+							<input type="datetime-local" class="form-control" id="tglpesan" name="tglpesan" required>
+						</div>
+						<div class="form-group">
+							<label for="tglberangkat">Tanggal Berangkat:</label>
+							<input type="datetime-local" class="form-control" id="tglberangkat" name="tglberangkat" required>
+						</div>
+						<div class="form-group">
+							<label for="tglpulang">Tanggal Pulang:</label>
+							<input type="datetime-local" class="form-control" id="tglpulang" name="tglpulang" required>
+						</div>
+						<div class="form-group">
+							<label for="totalharga">Total Harga:</label>
+							<input type="number" class="form-control" id="totalharga" name="totalharga" required>
+						</div>
+						<button type="submit" class="btn btn-primary" name="pesan">Pesan</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
