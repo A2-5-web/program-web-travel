@@ -74,4 +74,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Tutup koneksi ke database
 mysqli_close($conn);
 ?>
-!

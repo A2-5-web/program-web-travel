@@ -60,4 +60,5 @@ if(isset($_GET['view']) && $_GET['view'] === "register") {
 		</form>
 	<?php endif; ?>
 </body>
+
 </html>
