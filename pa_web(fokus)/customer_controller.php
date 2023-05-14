@@ -27,7 +27,7 @@ function tampil_data(){
 }
 
 // untuk menambahkan data pada database apabila script ajax berhasil dikirimkan
-if (isset($_POST['tambahData'])) {
+if (isset($_POST['orderTiket'])) {
   $status = $_POST['status'];
   $tanggal_pesan = $_POST['tanggal_pesan'];
   $id_user = $_POST['id_user'];

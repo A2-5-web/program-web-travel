@@ -130,7 +130,7 @@ $result = tampil_data();
                     <div class="tampungDurasi<?php echo $id ?>" hidden><?php echo $durasiAngka ?></div>
                   </div>
                   <div class="form-group text-center">
-							      <button type="submit" class="btn btn-primary" onclick="tambahData(<?php echo $id;?>)">Tambah Data</button>
+							      <button type="submit" class="btn btn-primary" onclick="orderTiket(<?php echo $id;?>)">Konfirmasi</button>
 						      </div>
                 </form>
               </div>
@@ -198,7 +198,7 @@ function hitungTanggal(id) {
 }
 
 // menambahkan data pada database menggunakan ajax 
-function tambahData(id) {
+function orderTiket(id) {
   // Mendapatkan nilai inputan form
   var jumlah_orang = $('#jumlah_orang-' + id).val();
   var total_harga = $('#total_hargaHid-' + id).val();
@@ -219,7 +219,7 @@ function tambahData(id) {
       'tanggal_pesan': '<?php echo date("Y/m/d"); ?>',
       'status' : "Belum Dibayar",
       'id_paket': id_paket,
-      'tambahData': true
+      'orderTiket': true
     },
     success: function (data) {
       // Menampilkan pesan sukses atau error
