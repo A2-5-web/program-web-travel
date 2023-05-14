@@ -28,14 +28,14 @@ require('agen_controller.php');
         <i class="bx bxs-smile"></i>
         <span class="text">Travel5</span>
       </a>
-      <ul class="side-menu top">
-        <li class="active">
+	  <ul class="side-menu mid">
+        <li>
           <a href="agen_beranda.php">
             <i class="bx bxs-home"></i>
             <span class="text">Home</span>
           </a>
         </li>
-        <li>
+        <li class="active">
           <a href="agen_tiket.php">
             <i class="bx bxs-shopping-bag-alt"></i>
             <span class="text">Tiket</span>
@@ -64,15 +64,6 @@ require('agen_controller.php');
       <nav>
         <i class="bx bx-menu"></i>
         <a href="#" class="nav-link">Kategori</a>
-        <form action="#">
-          <div class="form-input">
-            <button type="submit" class="search-btn">
-              <i class="bx bx-planet"></i>
-            </button>
-          </div>
-        </form>
-        <input type="checkbox" id="switch-mode" hidden />
-        <label for="switch-mode" class="switch-mode"></label>
       </nav>
       <!-- NAVBAR -->
 

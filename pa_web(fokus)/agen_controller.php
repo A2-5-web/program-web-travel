@@ -24,7 +24,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 //----------------------TAMBAH DATA-----------------------//
 // percabangan untuk menangani klik tombol submit pada form tambah data
 if (isset($_POST['tambah'])) {
-    $nama = $_POST['nama'];
+    $nama = $_POST['nama_paket'];
     $destinasi = $_POST['destinasi'];
     $deskripsi = $_POST['deskripsi'];
     $harga = $_POST['harga'];
