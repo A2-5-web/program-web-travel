@@ -11,21 +11,31 @@ if(isset($_GET['view']) && $_GET['view'] === "register") {
 <head>
 	<title><?php echo $view; ?> Form</title>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<link rel="stylesheet" href="css/login.css" />
+	<link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
 </head>
 <body>
-	<?php if($view === "login"): ?>
-		<h2>Login Form</h2>
-		<form method="post" action="login_controller.php">
-			<label for="username">Username:</label>
-			<input type="text" name="username" id="username" required><br><br>
+<div class="box">
+	<div class="container">
+		<?php if($view === "login"): ?>
+			<div class="top">
+			<h2>Login Form</h2>
+			<form method="post" action="login_controller.php">
+				<label for="username">Username:</label>
+				<input type="text" name="username" id="username" required><br><br>
 
-			<label for="password">Password:</label>
-			<input type="password" name="password" id="password" required><br><br>
+				<label for="password">Password:</label>
+				<input type="password" name="password" id="password" required><br><br>
 
-			<input type="submit" name="submit" value="Login">
-			<br><br>
-			<a href="?view=register">Sign Up</a>
+				<input type="submit" name="submit" value="Login">
+				<br><br>
+				<a href="?view=register">Sign Up</a>
 		</form>
+	</div>
+</div>
 	<?php elseif($view === "register"): ?>
 		<h2>Sign-up Form</h2>
 		<form method="post" action="signup_controller.php">
