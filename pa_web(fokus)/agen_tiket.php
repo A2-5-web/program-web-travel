@@ -301,20 +301,20 @@ require('agen_controller.php');
 	}
 	</script>
 	<script type="text/javascript">
-$(document).ready(function() {
-    $('#myTable').DataTable({
-        "paging": true,
-        "searching": true,
-        "ordering": true,
-        "order": [[1, "asc"]],
-        "columnDefs": [
-            {
-                "targets": 0,
-                "orderable": false
-            }
-        ]
-    });
-});
+	$(document).ready(function() {
+		$('#myTable').DataTable({
+			"paging": true,
+			"searching": true,
+			"ordering": true,
+			"order": [[1, "asc"]],
+			"columnDefs": [
+				{
+					"targets": 0,
+					"orderable": false
+				}
+			]
+		});
+	});
 	</script>
       </main>
       <!-- MAIN -->

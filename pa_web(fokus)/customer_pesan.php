@@ -38,7 +38,12 @@ $result = tampil_data();
   }
   ?>
 
-  <a class="btn btn-primary float-right" style="margin-top: -80px;" href="customer_controller.php?action=logout">Logout</a>
+    <div class="d-flex justify-content-end">
+      <a class="btn btn-primary ml-auto" href="customer_tiket.php">Tiket Saya</a>
+      <a class="btn btn-primary ml-2" href="customer_controller.php?action=logout">Logout</a>
+    </div>
+
+
   <!-- tampilan utama pada halaman ini  -->
   <div class="container" style="margin-top: 100px;">
     <div class="card-container">

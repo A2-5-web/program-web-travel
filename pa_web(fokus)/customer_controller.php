@@ -26,6 +26,13 @@ function tampil_data(){
     return $result;
 }
 
+function tampil_order_byID($id){
+  global $conn;
+  $query = "SELECT pemesanan.*, paket.nama_paket FROM pemesanan INNER JOIN paket ON pemesanan.id_paket = paket.id_paket WHERE pemesanan.id_user = '$id';";
+  $result = mysqli_query($conn, $query);
+  return $result;
+}
+
 // untuk menambahkan data pada database apabila script ajax berhasil dikirimkan
 if (isset($_POST['orderTiket'])) {
   $status = $_POST['status'];
