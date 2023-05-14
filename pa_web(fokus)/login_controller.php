@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($status == "customer") {
             echo "<script>
                 swal('Selamat', 'Login Berhasil', 'success').then(function() {
-                    window.location.href = 'agen.php';
+                    window.location.href = 'customer_pesan.php';
                 });
             </script>";
         } elseif ($status == "travel_agent") {
