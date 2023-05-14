@@ -1,6 +1,6 @@
 /* Style untuk halaman utama */
 body {
-    background-image: url("/pa_web(fokus)/img/header-bg.jpg");
+    background-image: url("img/header-bg.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
