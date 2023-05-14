@@ -72,3 +72,7 @@
   background-color: #007bff;
   color: #fff;
 }
+
+#tampungHarga{
+  display: none;
+}
