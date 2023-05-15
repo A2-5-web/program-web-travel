@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require('agen_controller.php');
 ?>
 <!DOCTYPE html>
@@ -42,7 +43,7 @@ require('agen_controller.php');
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="agen_pemesanan.php">
             <i class="bx bxs-cart-add"></i>
             <span class="text">Pemesanan</span>
           </a>

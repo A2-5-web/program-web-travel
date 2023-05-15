@@ -1,5 +1,4 @@
 <?php
-session_start();
 // Koneksi ke database
 $servername = "localhost";
 $username = "root";
@@ -20,6 +19,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     header('Location: auth_form.php');
     exit;
 }
+
+
 
 //----------------------TAMBAH DATA-----------------------//
 // percabangan untuk menangani klik tombol submit pada form tambah data
@@ -75,6 +76,27 @@ function tampil_data($order_by,$id_user){
     return $result;
 }
 
+function tampil_order_byID($id){
+  global $conn;
+  $query = "SELECT pemesanan.*, paket.id_user, user.nama_user, paket.nama_paket, nama_gambar FROM pemesanan INNER JOIN paket ON pemesanan.id_paket = paket.id_paket INNER JOIN user ON paket.id_user = user.id_user WHERE paket.id_user = '$id'  ORDER BY id_pemesanan ASC;";
+  $result = mysqli_query($conn, $query);
+  return $result;
+}
+
+function travel_by_id($id){
+    global $conn;
+    $query = "SELECT COUNT(*) AS jumlah_paket FROM paket WHERE id_user = '$id';";
+    $result = mysqli_query($conn, $query);
+    return $result;
+
+}
+function pesan_by_id($id){
+    global $conn;
+    $query = "SELECT COUNT(*) AS jumlah_tiket_dipesan FROM pemesanan INNER JOIN paket ON pemesanan.id_paket = paket.id_paket WHERE paket.id_user = '$id';";
+    $result = mysqli_query($conn, $query);
+    return $result;
+
+}
 //----------------------UBAH DATA-----------------------//
 // percabangan untuk menangani klik tombol submit pada form tambah data
 if(isset($_POST['ubah'])){
@@ -139,4 +161,39 @@ function hapus_data($id_paket) {
     } else {
         return false;
     }
+}
+
+if(isset($_GET['konfirmasi'])) {
+  $id_pemesanan = $_GET['konfirmasi'];
+  // Buat query untuk menghapus data pemesanan
+  $sql = "UPDATE pemesanan SET status='Sudah Dikonfirmasi' WHERE id_pemesanan='$id_pemesanan'";
+
+  // Eksekusi query dan periksa apakah penghapusan berhasil atau tidak
+  if($conn->query($sql) === TRUE) {
+    // Jika penghapusan berhasil, tampilkan pesan konfirmasi
+    header("location: agen_pemesanan.php");
+  } else {
+    // Jika penghapusan gagal, tampilkan pesan error
+    header("location: agen_pemesanan.php?pesan=Gagal Membayar");
+  }
+
+  // Tutup koneksi ke basis data
+  $conn->close();
+}
+if(isset($_GET['hapusTiket'])) {
+  $id_pemesanan = $_GET['hapusTiket'];
+  // Buat query untuk menghapus data pemesanan
+  $sql = "DELETE FROM pemesanan WHERE id_pemesanan = '$id_pemesanan'";
+
+  // Eksekusi query dan periksa apakah penghapusan berhasil atau tidak
+  if($conn->query($sql) === TRUE) {
+    // Jika penghapusan berhasil, tampilkan pesan konfirmasi
+    header("location: agen_pemesanan.php");
+  } else {
+    // Jika penghapusan gagal, tampilkan pesan error
+    header("location: agen_pemesanan.php?pesan=Gagal Menghapus Tiket");
+  }
+
+  // Tutup koneksi ke basis data
+  $conn->close();
 }

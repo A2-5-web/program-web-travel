@@ -1,3 +1,13 @@
+<?php 
+
+session_start();
+require 'agen_controller.php';
+
+$jumlahTravel = travel_by_id($_SESSION['id_user']);
+$jumlahPesan = pesan_by_id($_SESSION['id_user']);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -36,7 +46,7 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="agen_pemesanan.php">
             <i class="bx bxs-cart-add"></i>
             <span class="text">Pemesanan</span>
           </a>
@@ -66,16 +76,24 @@
           <div class="card-container">
             <div class="card">
               <div class="card-header">Jumlah Paket Travel</div>
+              <?php
+              $row = mysqli_fetch_assoc($jumlahTravel);
+              $jumlah_paket = $row['jumlah_paket']
+              ?>
               <div class="card-body">
-                <div class="number">100</div>
+                <div class="number"><?= $jumlah_paket?></div>
                 <div class="text">Paket Travel Tersedia</div>
               </div>
             </div>
             <div class="card">
-              <div class="card-header">Jumlah Paket Travel</div>
+              <div class="card-header">Jumlah Tiket Dipesan</div>
+                            <?php
+              $row = mysqli_fetch_assoc($jumlahPesan);
+              $jumlah_pesan = $row['jumlah_tiket_dipesan'];
+              ?>
               <div class="card-body">
-                <div class="number">100</div>
-                <div class="text">Paket Travel Tersedia</div>
+                <div class="number"><?= $jumlah_pesan?></div>
+                <div class="text">Tiket Dipesan</div>
               </div>
             </div>
             <div class="card">

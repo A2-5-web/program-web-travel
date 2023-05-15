@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'customer_controller.php';
+require 'agen_controller.php';
 $data = tampil_order_byID($_SESSION['id_user']);
 ?>
 <!DOCTYPE html>
@@ -33,8 +33,10 @@ $data = tampil_order_byID($_SESSION['id_user']);
   }
   ?>
 <div class="d-flex justify-content-end">
-    <a class="ml-auto" href="customer_pesan.php">Pesan Tiket</a>
-    <a class="2" href="customer_controller.php?action=logout">Logout</a>
+
+    <a class="ml-auto" href="agen_beranda.php">Beranda</a>
+    <a class="ml-2" href="agen_tiket.php">Lihat Travel</a>
+    <a class="ml-4" href="customer_controller.php?action=logout">Logout</a>
 </div>
 <table id="myTable" class="table table-bordered table-hover" style="margin-top: 100px;">
   <thead>
@@ -44,7 +46,6 @@ $data = tampil_order_byID($_SESSION['id_user']);
       <th>Tanggal Pesan</th>
       <th>Nama Paket</th>
       <th>Jumlah Orang</th>
-      <th>Tanggal Berangkat</th>
       <th>Total Harga</th>
       <th>Status</th>
       <th>Aksi</th>
@@ -60,16 +61,13 @@ $data = tampil_order_byID($_SESSION['id_user']);
       <td><?= $row['tanggal_pemesanan'] ?></td>
       <td><?= $row['nama_paket'] ?></td>
       <td><?= $row['jumlah_orang'] ?></td>
-      <td><?= $row['tanggal_berangkat'] ?></td>
       <td>Rp <?= number_format($row['total_bayar'], 0, ',', '.') ?></td>
       <td><?= $row['status'] ?></td>
       <td>
         <?php if ($row['status'] == "Menunggu Konfirmasi") : ?>
-          <a title="Anda sudah membayar dan menunggu konfirmasi" href="javascript:void(0);" style="color: #aaa; cursor: default;" disabled><i class="fas fa-credit-card"></i></a>
+          <a onclick="confirm(<?php echo $row['id_pemesanan'];?>)" title="Klik Untuk Mengkonfirmasi Pesanan Ini" style="cursor:pointer;">Konfirmasi</a>
         <?php elseif ($row['status'] ==  'Sudah Dikonfirmasi') : ?>
-          <a title="Tiket anda sudah dikonfirmasi" href="javascript:void(0);" style="color: #aaa; cursor: default;" disabled><i class="fas fa-credit-card"></i></a>
-        <?php else : ?>
-          <a onclick="confirmBayar(<?php echo $row['id_pemesanan'];?>)" title="Klik untuk melakukan pembayaran"><i class="fas fa-credit-card"></i></a>
+          <a title="Tiket sudah dikonfirmasi" href="javascript:void(0);" style="color: #aaa; cursor: default;" disabled>Konfirmasi</a>
         <?php endif; ?>
         <a href="#" data-toggle="modal" data-target="#detailModal-<?php echo $id ?>" title="Klik untuk melihat detail"><i class="fas fa-info-circle"></i></a>
         <a onclick="confirmDelete(<?php echo $row['id_pemesanan'];?>)"><i class="fas fa-trash"></i></a>
@@ -90,13 +88,14 @@ $data = tampil_order_byID($_SESSION['id_user']);
         <img src='img/<?php echo $row['nama_gambar'] ?>' style="width: 100%; height: 200px; object-fit: cover;" alt='<?php echo $row['nama_paket'] ?>'>
         <div class="row">
           <div class="col-md-6">
+            <p><strong>Nama Pemesan:</strong> <?php echo $row['nama_user']; ?></p>
             <p><strong>Nama Paket:</strong> <?php echo $row['nama_paket']; ?></p>
             <p><strong>Jumlah Orang:</strong> <?php echo $row['jumlah_orang'] ?></p>
-            <p><strong>Tanggal Berangkat:</strong> <?php echo $row['tanggal_berangkat'] ?></p>
-            <p><strong>Tanggal Kembali:</strong> <?php echo $row['tanggal_kembali'] ?></p>
             <p><strong>Harga:</strong> Rp <?php echo number_format($row['total_bayar'], 0, ',', '.') ?></p>
           </div>
           <div class="col-md-6">
+            <p><strong>Tanggal Berangkat:</strong> <?php echo $row['tanggal_berangkat'] ?></p>
+            <p><strong>Tanggal Kembali:</strong> <?php echo $row['tanggal_kembali'] ?></p>
             <p><strong>Status:</strong> <?php echo $row['status'] ?></p>
           </div>
         </div>
@@ -126,7 +125,7 @@ endforeach ?>
           button: "OK"
         });
         setTimeout(function() {
-          window.location.href = "customer_controller.php?hapus=" + id;
+          window.location.href = "customer_controller.php?hapusTiket=" + id;
         }, 2000);
       } else {
         swal("File tidak jadi dihapus!", {
@@ -136,24 +135,24 @@ endforeach ?>
       }
     });
     }
-    function confirmBayar(id) {
+    function confirm(id) {
     swal({
-      title: "Apakah anda yakin membayar?",
-      text: "Anda tidak dapat mengembalikan ini!",
+      title: "Apakah anda yakin melakukan ini?",
+      text: "Anda tidak dapat mengembalikannya!",
       icon: "warning",
       buttons: true,
       dangerMode: true,
     }).then((willBut) => {
       if (willBut) {
-        swal("Berhasil melakukan pembayaran", {
+        swal("Berhasil melakukan konfirmasi", {
           icon: "success",
           button: "OK"
         });
         setTimeout(function() {
-          window.location.href = "customer_controller.php?bayar=" + id;
+          window.location.href = "agen_controller.php?konfirmasi=" + id;
         }, 2000);
       } else {
-        swal("Batal Membayar!", {
+        swal("Batal Mengkonfirmasi!", {
           icon: "error",
           button: "OK"
         });
