@@ -9,12 +9,12 @@
 - Di dalam menu user terdapat 4 halaman yaitu halaman Home, halaman Pesan Tiket, halaman Tiket Saya dan halaman Login
 
 ### -- Halaman Home --
-Pada Halaman home ini berisi kata sambutan kepada Customer, featured places yang berisi tempat-tempat yang sering dikunjungi, layanan apa saja yang kami sediakan, dan yang terakhir ada testimoni dari para pelanggan.
-- (GAMBARRRRR)
+Pada Halaman home ini berisi kata sambutan kepada Customer.
+![Home (2)](https://github.com/A2-5-web/program-web-travel/assets/119683415/cf8cb395-73a7-4496-b984-65c9d356821f)
 
 ### -- Halaman Pesan Tiket --
 Pada Halaman Pesan Tiket ini customer dapat melihat apa saja paket wisata yang ada, dan customer juga dapat memesan paket wisata yang tersedia. Tetapi hanya customer yang sudah login saja yang bisa melakukan pemesanan pada paket wisata.
-- (GAMBARRRRR)
+![Card-Paket-Travel (2)](https://github.com/A2-5-web/program-web-travel/assets/119683415/a5533dca-74cb-4830-8bb1-a32ede4dc7a1)
 
 ### -- Halaman Tiket Saya --
 Pada Halaman ini Customer dapat melihat tiket apa saja yang sudah pernah di beli
@@ -54,6 +54,9 @@ Di dalam Form Tambah Paket Travel, seorang travel agent harus mengisi nama paket
 Di dalam menu ini agent travel bisa melihat paket apa saja yang dipesan oleh customer
 - (GAMBARRRRRR)
 
+### -- Halaman Logout --
+Di dalam menu logout ini travel agent bisa melakukan logout
+
 
 ## 3. Penggunaan Website Sebagai Admin
 Di dalam menu admin admin terdapat 3 halaman yaitu halaman Home, halaman Tiket, dan halaman Paket Travel.
@@ -69,4 +72,11 @@ Di dalam menu tiket ini berisi tabel tiket yang sudah dipesan oleh customer
 ### -- Halaman Paket Travel --
 Di dalam menu ini admin bisa melihat tabel yang berisi paket travel yang telah ditambah oleh agen travel
 - (GAMBARRRRRR)
+
+### -- Halaman Logout --
+Di dalam menu ini Admin bisa melakukan logout
+- (GAMBARRRRRR)
+
+
+################################################################################################
 
