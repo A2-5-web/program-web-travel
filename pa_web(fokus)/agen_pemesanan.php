@@ -17,7 +17,14 @@ $data = tampil_order_byID($_SESSION['id_user']);
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://kit.fontawesome.com/20b151daf7.js" crossorigin="anonymous"></script>
     <title>Tiket Saya</title>
-</head>
+    <!-- Boxicons -->
+      <link
+      href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- My CSS -->
+    <link rel="stylesheet" href="../pa_web(fokus)/css/style2.css" />
+    <link rel="stylesheet" type="text/css" href="css/customer.css">
 <body>
     <?php
   if (isset($_GET['pesan'])) {
@@ -32,12 +39,56 @@ $data = tampil_order_byID($_SESSION['id_user']);
           </script>";
   }
   ?>
-<div class="d-flex justify-content-end">
+     <!-- SIDEBAR -->
+     <section id="sidebar">
+      <a href="" class="brand">
+        <i class="bx bxs-smile"></i>
+        <span class="text">Travel5</span>
+      </a>
+      <ul class="side-menu top">
+        <li>
+          <a href="agen_beranda.php">
+            <i class="bx bxs-home"></i>
+            <span class="text">Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="agen_tiket.php">
+            <i class="bx bxs-shopping-bag-alt"></i>
+            <span class="text">Tiket</span>
+          </a>
+        </li>
+        <li class="active">
+          <a href="agen_pemesanan.php">
+            <i class="bx bxs-cart-add"></i>
+            <span class="text">Pemesanan</span>
+          </a>
+        </li>
+      <ul class="side-menu">
+        <li>
+          <a href="agen_controller.php?action=logout" class="logout">
+            <i class="bx bxs-log-out-circle"></i>
+            <span class="text">Logout</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <!-- SIDEBAR -->
 
-    <a class="ml-auto" href="agen_beranda.php">Beranda</a>
+  <!-- CONTENT -->
+  <section id="content">
+      <!-- NAVBAR -->
+      <nav>
+        <i class="bx bx-menu"></i>
+        <a href="#" class="nav-link">Kategori</a>
+      </nav>
+      <!-- NAVBAR -->
+
+    
+    <div class="d-flex justify-content-end">
     <a class="ml-2" href="agen_tiket.php">Lihat Travel</a>
     <a class="ml-4" href="customer_controller.php?action=logout">Logout</a>
-</div>
+    </div>
 <table id="myTable" class="table table-bordered table-hover" style="margin-top: 100px;">
   <thead>
     <tr>
@@ -176,4 +227,5 @@ endforeach ?>
         });
     });
 </script>
+<script src="script.js"></script>
 </html>

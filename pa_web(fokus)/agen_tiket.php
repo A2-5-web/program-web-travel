@@ -29,7 +29,7 @@ require('agen_controller.php');
         <i class="bx bxs-smile"></i>
         <span class="text">Travel5</span>
       </a>
-	  <ul class="side-menu mid">
+	  <ul class="side-menu top">
         <li>
           <a href="agen_beranda.php">
             <i class="bx bxs-home"></i>

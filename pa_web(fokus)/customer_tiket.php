@@ -17,6 +17,7 @@ $data = tampil_order_byID($_SESSION['id_user']);
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://kit.fontawesome.com/20b151daf7.js" crossorigin="anonymous"></script>
     <title>Tiket Saya</title>
+    
 </head>
 <body>
     <?php

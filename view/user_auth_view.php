@@ -115,7 +115,7 @@ if(isset($_GET['view']) && $_GET['view'] == 'register') {
           <input type="submit" class="submit" value="Login" name="submit_login" />
         </div>
 		</form>
-		<p>Belum punya akun? <a href="?view=register">Daftar</a></p>
+		<p>Belum punya akun? <a href="?view=register">Daftar</a>
       </div>
     </div>
 		<?php
