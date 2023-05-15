@@ -6,13 +6,18 @@
 
 # Tutorial Penggunaan Website
 ## 1. Penggunaan Website Sebagai Customer
-- Di dalam menu user terdapat 3 halaman yaitu halaman Home, halaman Pesan Tiket dan halaman Login
+- Di dalam menu user terdapat 4 halaman yaitu halaman Home, halaman Pesan Tiket, halaman Tiket Saya dan halaman Login
+
 ### -- Halaman Home --
 Pada Halaman home ini berisi kata sambutan kepada Customer, featured places yang berisi tempat-tempat yang sering dikunjungi, layanan apa saja yang kami sediakan, dan yang terakhir ada testimoni dari para pelanggan.
 - (GAMBARRRRR)
 
 ### -- Halaman Pesan Tiket --
 Pada Halaman Pesan Tiket ini customer dapat melihat apa saja paket wisata yang ada, dan customer juga dapat memesan paket wisata yang tersedia. Tetapi hanya customer yang sudah login saja yang bisa melakukan pemesanan pada paket wisata.
+- (GAMBARRRRR)
+
+### -- Halaman Tiket Saya --
+Pada Halaman ini Customer dapat melihat tiket apa saja yang sudah pernah di beli
 - (GAMBARRRRR)
 
 ### -- Halaman Login --
@@ -28,8 +33,40 @@ Setelah semua form sudah diisi tekan/klik tombol Sign Up, maka customer akan di 
 - (GAMBARRRRR) 
 
 
-2. Penggunaan Website Sebagai Travel Agent
+## 2. Penggunaan Website Sebagai Travel Agent
+Di dalam menu Travel Agent ini berisi halaman Home, halaman tiket dan halaman pemesanan
+
+### -- Halaman Home --
+Di dalam menu home travel agent ini hanya berisi berapa jumlah paket travel yang tersedia
+- (GAMBARRRRR) 
+
+### -- Halaman Tiket --
+Di dalam menu tiket ini travel agent dapat melihat paket travel dan dapat menambahkan paket travel
+- (GAMBARRRRR) 
+
+Untuk menambahkan paket travel hanya perlu mengklik/menekan tombol Tambah Paket, setelah tombol nya di klik akan muncul form Tambah Paket Travel
+- (GAMBARRRRR) 
+
+Di dalam Form Tambah Paket Travel, seorang travel agent harus mengisi nama paket travel, destinasi, deskripsi, paket tour, harga, durasi perjalanan, dan gambar. Setelah mengisi semua formnya klik tombol tambah.
+- (GAMBARRRRRR) 
+
+### -- Halaman Pemesanan --
+Di dalam menu ini agent travel bisa melihat paket apa saja yang dipesan oleh customer
+- (GAMBARRRRRR)
 
 
+## 3. Penggunaan Website Sebagai Admin
+Di dalam menu admin admin terdapat 3 halaman yaitu halaman Home, halaman Tiket, dan halaman Paket Travel.
 
-3. Penggunaan Website Sebagai Admin
+### -- Halaman Home --
+Di dalam Halaman Home admin ini berisi ........
+- (GAMBARRRRRR)
+
+### -- Halaman Tiket --
+Di dalam menu tiket ini berisi tabel tiket yang sudah dipesan oleh customer
+- (GAMBARRRRRR)
+
+### -- Halaman Paket Travel --
+Di dalam menu ini admin bisa melihat tabel yang berisi paket travel yang telah ditambah oleh agen travel
+- (GAMBARRRRRR)
+
