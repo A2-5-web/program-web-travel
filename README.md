@@ -19,7 +19,7 @@ Pada Halaman Pesan Tiket ini customer dapat melihat apa saja paket wisata yang a
 Pada Halaman Login ini Customer dapat melakukan login dan Registrasi akun.
 
 Jika ingin melakukan login customer harus memasukkan username dan passwordnya. Jika customer belum mempunyai akun maka customer harus melakukan registrasi akun terlebih dahulu dengan menekan/mengklik tulisan Sign Up.
-- (GAMBARRRRR)                                                                                                                           
+- (GAMBARRRRR)
 
 Setelah menekan/mengklik tulisan Sign UP, akan muncul form untuk melakukan registrasi/sign up. pada form ini customer harus memasukkan nama, nomor telepon, alamat, status di isi sebagai Customer, gender, username dan password.
 - (GAMBARRRRR) 
