@@ -27,6 +27,7 @@ Setelah menekan/mengklik tulisan Sign UP, akan muncul form untuk melakukan regis
 Setelah semua form sudah diisi tekan/klik tombol Sign Up, maka customer akan di kembalikan ke menu login. Jika customer ingin melakukan login, customer hanya perlu memasukkan username dan password yang dibuat saat melakukan registrasi lalu tekan/klik tombol Login
 - (GAMBARRRRR) 
 
+
 2. Penggunaan Website Sebagai Travel Agent
 
 
