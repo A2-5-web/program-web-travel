@@ -8,45 +8,92 @@ $result = tampil_data();
 
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Card Paket Travel</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
-	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
-	<link rel="stylesheet" type="text/css" href="css/customer.css">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Card Paket Travel</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    <!-- font awesome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- fonts -->
+    <link rel="stylesheet" href="css/fonts.css" />
+    <!-- normalize css -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/utility.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/customer.css">
+  </head>
+  <body>
+    <!-- navbar  -->
+    <nav class="navbar">
+      <div class="container flex">
+        <a href="customer_pesan.php" class="site-brand"> Travel<span>5</span> </a>
+        <button type="button" id="navbar-show-btn" class="flex">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div id="navbar-collapse">
+          <button type="button" id="navbar-close-btn" class="flex">
+            <i class="fas fa-times"></i>
+          </button>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="customer_pesan.php" class="nav-link">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a href="customer_tiket.php" class="nav-link">Tiket Saya</a>
+            </li>
+            <li class="nav-item">
+              <a href="customer_controller.php?action=logout" class="nav-link">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-</head>
-<body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Travel5</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="customer_tiket.php">Tiket Saya</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="customer_controller.php?action=logout">Logout</a>
-        </li>
-      </ul>
+    <!-- end of navbar  -->
+    <!-- header -->
+    <header class="flex header-sm">
+      <div class="container">
+        <div class="header-title">
+          <h1>Selamat Datang di Travel5</h1>
+          <p>
+            Temukan pengalaman liburan yang tak terlupakan dengan paket-paket
+            kami. Segera booking sekarang dan jadilah bagian dari petualangan
+            seru bersama kami!
+          </p>
+        </div>
+      </div>
+    </header>
+    <!-- header -->
+
+    <!-- booknow -->
+    <div class="title-wrap">
+      <span class="sm-title"
+        >Jangan lewatkan kesempatan untuk menjelajahi dunia!</span
+      >
+      <h2 class="lg-title">Buruan Pesan!</h2>
     </div>
-  </div>
-</nav>
-  <!-- untuk memeriksa apakah ada pesan yang akan ditampilkan atau tidak -->
+     <!-- untuk memeriksa apakah ada pesan yang akan ditampilkan atau tidak -->
   <?php
   if (isset($_GET['pesan'])) {
     $pesan = $_GET['pesan'];
@@ -163,100 +210,172 @@ $result = tampil_data();
       <?php endforeach;?>
     </div>
   </div>
-</body>
+    <!-- end of booknow section -->
+    
+    <!-- footer -->
+    <footer class="py-4">
+      <div class="container footer-row">
+        <div class="footer-item">
+          <a href="home.html" class="site-brand"> Travel<span>5</span> </a>
+          <p class="text">
+            Jangan lewatkan kesempatan untuk mengunjungi destinasi terbaik di
+            seluruh dunia dengan Travel5. Kami menyediakan pilihan tempat wisata
+            yang menarik dan layanan terbaik untuk memastikan liburan Anda
+            menjadi tak terlupakan. Yuk, plan your dream trip with us now!
+          </p>
+        </div>
 
-<script>
-// script jquery untuk membuka dan menutup modal
-$(document).ready(function() {
-  $('.btn-detail, .btn-custom').on('click', function() {
-    var modalId = $(this).attr('data-target');
-    $(modalId).modal('show');
-  });
-  
-  $('.modal').on('hidden.bs.modal', function() {
-    $('.btn-detail, .btn-custom').removeClass('active');
-  });
-});
+        <div class="footer-item">
+          <h2>Follow us on:</h2>
+          <ul class="social-links">
+            <li>
+              <a href="#">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fab fa-pinterest"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fab fa-google-plus"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
 
-// untuk merubah format angka menjadi rupiah 
-function formatRupiah(angka) {
-  let numberString = angka.toString().replace(/[^,\d]/g, '');
-  let split = numberString.split(',');
-  let sisa = split[0].length % 3;
-  let rupiah = split[0].substr(0, sisa);
-  let ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+        <div class="footer-item">
+          <h2>Popular Places:</h2>
+          <ul>
+            <li><a href="#">Thailand</a></li>
+            <li><a href="#">Australia</a></li>
+            <li><a href="#">Maldives</a></li>
+            <li><a href="#">Switzerland</a></li>
+            <li><a href="#">Germany</a></li>
+          </ul>
+        </div>
 
-  if (ribuan) {
-    let separator = sisa ? '.' : '';
-    rupiah += separator + ribuan.join('.');
-  }
+        <div class="subscribe-form footer-item">
+          <h2>Subscribe for Newsletter!</h2>
+          <form class="flex">
+            <input
+              type="email"
+              placeholder="Enter Email"
+              class="form-control"
+            />
+            <input type="submit" class="btn" value="Subscribe" />
+          </form>
+        </div>
+      </div>
+    </footer>
+    <!-- end of footer -->
+    <!-- js -->
+    <script>
+      // script jquery untuk membuka dan menutup modal
+      $(document).ready(function() {
+        $('.btn-detail, .btn-custom').on('click', function() {
+          var modalId = $(this).attr('data-target');
+          $(modalId).modal('show');
+        });
+        
+        $('.modal').on('hidden.bs.modal', function() {
+          $('.btn-detail, .btn-custom').removeClass('active');
+        });
+      });
 
-  rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-  return 'Rp. ' + rupiah;
-}
+      // untuk merubah format angka menjadi rupiah 
+      function formatRupiah(angka) {
+        let numberString = angka.toString().replace(/[^,\d]/g, '');
+        let split = numberString.split(',');
+        let sisa = split[0].length % 3;
+        let rupiah = split[0].substr(0, sisa);
+        let ribuan = split[0].substr(sisa).match(/\d{3}/gi);
 
-// menghitung harga ketika jumlah orang diinput
-function hitungHarga(id) {
-  let jumlahOrang = document.getElementById('jumlah_orang-' + id).value;
-  let hargaView = document.querySelector('.tampungHarga' + id).innerHTML;
-  let hargaHid = document.querySelector('.tampungHarga' + id).innerHTML;
-  let totalHargaView = jumlahOrang * hargaView;
-  let totalHargaHid = jumlahOrang * hargaView;
-  document.getElementById('total_harga-' + id).value = formatRupiah(totalHargaView);
-  document.getElementById('total_hargaHid-' + id).value = totalHargaHid;
-  console.log(totalHargaHid)
-}
+        if (ribuan) {
+          let separator = sisa ? '.' : '';
+          rupiah += separator + ribuan.join('.');
+        }
 
-// menghitung tanggal kembali berdasarkan durasi paket travel dan tanggal keberangkatan yang telah diatur
-function hitungTanggal(id) {
-  let tanggalBerangkat = new Date(document.getElementById('tanggal_berangkat-' + id).value);
-  let tanggalArray = tanggalBerangkat.toLocaleDateString("en-US").split("/");
-  let tanggal = parseInt(tanggalArray[1]);
-  let bulan = parseInt(tanggalArray[0]) - 1;
-  let tahun = parseInt(tanggalArray[2]);
-  let durasi = parseInt(document.querySelector('.tampungDurasi' + id).innerHTML);
-  tanggalBerangkat.setDate(tanggal + durasi);
-  tanggalBerangkat.setFullYear(tahun, bulan, tanggal + durasi);
-  document.getElementById('tanggal_kembali-' + id).value = tanggalBerangkat.toISOString().split('T')[0];
-}
-
-// menambahkan data pada database menggunakan ajax 
-function orderTiket(id) {
-  // Mendapatkan nilai inputan form
-  var jumlah_orang = $('#jumlah_orang-' + id).val();
-  var total_harga = $('#total_hargaHid-' + id).val();
-  var tanggal_berangkat = $('#tanggal_berangkat-' + id).val();
-  var tanggal_kembali = $('#tanggal_kembali-' + id).val();
-  var id_paket = $('#id_paket-' + id).val();
-
-  // Melakukan ajax post request untuk mengirim data ke server
-  $.ajax({
-    type: "POST",
-    url: "customer_controller.php",
-    data: {
-      'id_user' : '<?php echo $_SESSION['id_user']; ?>',
-      'jumlah_orang': jumlah_orang,
-      'total_harga': total_harga,
-      'tanggal_berangkat': tanggal_berangkat,
-      'tanggal_kembali': tanggal_kembali,
-      'tanggal_pesan': '<?php echo date("Y/m/d"); ?>',
-      'status' : "Belum Dibayar",
-      'id_paket': id_paket,
-      'orderTiket': true
-    },
-    success: function (data) {
-      // Menampilkan pesan sukses atau error
-      if (data == "sukses") {
-          window.location.href= "customer_pesan.php?pesan=Data+berhasil+ditambahkan";
-
-      } else {
-        alert("Data gagal ditambahkan! Silahkan coba lagi.");
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return 'Rp. ' + rupiah;
       }
-    },
-    error: function (xhr, status, error) {
-      alert("Terjadi kesalahan: " + error);
-    }
-  });
-}
-</script>
+
+      // menghitung harga ketika jumlah orang diinput
+      function hitungHarga(id) {
+        let jumlahOrang = document.getElementById('jumlah_orang-' + id).value;
+        let hargaView = document.querySelector('.tampungHarga' + id).innerHTML;
+        let hargaHid = document.querySelector('.tampungHarga' + id).innerHTML;
+        let totalHargaView = jumlahOrang * hargaView;
+        let totalHargaHid = jumlahOrang * hargaView;
+        document.getElementById('total_harga-' + id).value = formatRupiah(totalHargaView);
+        document.getElementById('total_hargaHid-' + id).value = totalHargaHid;
+        console.log(totalHargaHid)
+      }
+
+      // menghitung tanggal kembali berdasarkan durasi paket travel dan tanggal keberangkatan yang telah diatur
+      function hitungTanggal(id) {
+        let tanggalBerangkat = new Date(document.getElementById('tanggal_berangkat-' + id).value);
+        let tanggalArray = tanggalBerangkat.toLocaleDateString("en-US").split("/");
+        let tanggal = parseInt(tanggalArray[1]);
+        let bulan = parseInt(tanggalArray[0]) - 1;
+        let tahun = parseInt(tanggalArray[2]);
+        let durasi = parseInt(document.querySelector('.tampungDurasi' + id).innerHTML);
+        tanggalBerangkat.setDate(tanggal + durasi);
+        tanggalBerangkat.setFullYear(tahun, bulan, tanggal + durasi);
+        document.getElementById('tanggal_kembali-' + id).value = tanggalBerangkat.toISOString().split('T')[0];
+      }
+
+      // menambahkan data pada database menggunakan ajax 
+      function orderTiket(id) {
+        // Mendapatkan nilai inputan form
+        var jumlah_orang = $('#jumlah_orang-' + id).val();
+        var total_harga = $('#total_hargaHid-' + id).val();
+        var tanggal_berangkat = $('#tanggal_berangkat-' + id).val();
+        var tanggal_kembali = $('#tanggal_kembali-' + id).val();
+        var id_paket = $('#id_paket-' + id).val();
+
+        // Melakukan ajax post request untuk mengirim data ke server
+        $.ajax({
+          type: "POST",
+          url: "customer_controller.php",
+          data: {
+            'id_user' : '<?php echo $_SESSION['id_user']; ?>',
+            'jumlah_orang': jumlah_orang,
+            'total_harga': total_harga,
+            'tanggal_berangkat': tanggal_berangkat,
+            'tanggal_kembali': tanggal_kembali,
+            'tanggal_pesan': '<?php echo date("Y/m/d"); ?>',
+            'status' : "Belum Dibayar",
+            'id_paket': id_paket,
+            'orderTiket': true
+          },
+          success: function (data) {
+            // Menampilkan pesan sukses atau error
+            if (data == "sukses") {
+                window.location.href= "customer_pesan.php?pesan=Data+berhasil+ditambahkan";
+
+            } else {
+              alert("Data gagal ditambahkan! Silahkan coba lagi.");
+            }
+          },
+          error: function (xhr, status, error) {
+            alert("Terjadi kesalahan: " + error);
+          }
+        });
+      }
+    </script>
+    <script src="script2.js"></script>
+  </body>
 </html>

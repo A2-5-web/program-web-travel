@@ -3,25 +3,92 @@ session_start();
 require 'customer_controller.php';
 $data = tampil_order_byID($_SESSION['id_user']);
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Tiket Saya</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://kit.fontawesome.com/20b151daf7.js" crossorigin="anonymous"></script>
-    <title>Tiket Saya</title>
-    
-</head>
-<body>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    <!-- font awesome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- fonts -->
+    <link rel="stylesheet" href="css/fonts.css" />
+    <!-- normalize css -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/utility.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/customer.css">
+  </head>
+  <body>
+    <!-- navbar  -->
+    <nav class="navbar">
+      <div class="container flex">
+        <a href="customer_pesan.php" class="site-brand"> Travel<span>5</span> </a>
+        <button type="button" id="navbar-show-btn" class="flex">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div id="navbar-collapse">
+          <button type="button" id="navbar-close-btn" class="flex">
+            <i class="fas fa-times"></i>
+          </button>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="customer_pesan.php" class="nav-link">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a href="customer_tiket.php" class="nav-link">Tiket Saya</a>
+            </li>
+            <li class="nav-item">
+              <a href="customer_controller.php?action=logout" class="nav-link">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- end of navbar  -->
+    <!-- header -->
+    <header class="flex header-sm">
+      <div class="container">
+        <div class="header-title">
+          <h1>Tiket Saya</h1>
+          <p>
+          Nikmati pengalaman liburan yang tak terlupakan
+          </p>
+        </div>
+      </div>
+    </header>
+    <!-- header -->
+
+    <!-- booknow -->
+    <div class="title-wrap">
+      <span class="sm-title"
+        >Temukan destinasi impian Anda dan rasakan keindahannya bersama Travel5</span
+      >
+      <h2 class="lg-title">Daftar Tiket</h2>
+    </div>
     <?php
   if (isset($_GET['pesan'])) {
     $pesan = $_GET['pesan'];
@@ -35,27 +102,6 @@ $data = tampil_order_byID($_SESSION['id_user']);
           </script>";
   }
   ?>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Travel5</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="customer_pesan.php">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="customer_pesan.php">Pesan Tiket</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="customer_controller.php?action=logout">Logout</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
 <table id="myTable" class="table table-bordered table-hover" style="margin-top: 100px;">
   <thead>
     <tr>
@@ -130,9 +176,11 @@ $data = tampil_order_byID($_SESSION['id_user']);
 <?php 
 $no++; // increment nomor
 endforeach ?>
-
-<script>
-    function confirmDelete(id) {
+    <!-- end of booknow section -->
+    
+    <!-- js -->
+    <script>
+      function confirmDelete(id) {
     swal({
       title: "Apakah anda yakin?",
       text: "Anda tidak dapat mengembalikan ini!",
@@ -180,10 +228,8 @@ endforeach ?>
       }
     });
     }
-</script>
-</body>
-<script>
-    $(document).ready(function() {
+    </script>
+    <script> $(document).ready(function() {
     $('#myTable').DataTable({
         "paging": true,
         "searching": true,
@@ -195,6 +241,7 @@ endforeach ?>
               }
             ]
         });
-    });
-</script>
+    });</script>
+    <script src="script2.js"></script>
+  </body>
 </html>

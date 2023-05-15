@@ -72,7 +72,9 @@ require('agen_controller.php');
     <main>
 	<div class="container">
 		<h2 class="text-center">Tampil Data Paket Travel</h2>
+		<br>
 		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahModal">Tambah Paket</button>
+		<br>
 		<table id="myTable" class="table table-bordered">
 			<thead>
 				<tr>

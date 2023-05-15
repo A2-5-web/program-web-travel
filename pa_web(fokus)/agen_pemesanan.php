@@ -24,7 +24,6 @@ $data = tampil_order_byID($_SESSION['id_user']);
     />
     <!-- My CSS -->
     <link rel="stylesheet" href="../pa_web(fokus)/css/style2.css" />
-    <link rel="stylesheet" type="text/css" href="css/customer.css">
 <body>
     <?php
   if (isset($_GET['pesan'])) {
@@ -82,81 +81,79 @@ $data = tampil_order_byID($_SESSION['id_user']);
         <i class="bx bx-menu"></i>
         <a href="#" class="nav-link">Kategori</a>
       </nav>
-      <!-- NAVBAR -->
-
-    
-    <div class="d-flex justify-content-end">
-    <a class="ml-2" href="agen_tiket.php">Lihat Travel</a>
-    <a class="ml-4" href="customer_controller.php?action=logout">Logout</a>
-    </div>
-<table id="myTable" class="table table-bordered table-hover" style="margin-top: 100px;">
-  <thead>
-    <tr>
-      <th>No.</th>
-      <th>ID Pemesanan</th>
-      <th>Tanggal Pesan</th>
-      <th>Nama Paket</th>
-      <th>Jumlah Orang</th>
-      <th>Total Harga</th>
-      <th>Status</th>
-      <th>Aksi</th>
-    </tr>
-  </thead>
-  <tbody>
-  <?php 
-  $no = 1; // inisialisasi nomor
-  foreach ($data as $id => $row): ?>
-    <tr>
-      <td><?php echo $no ?></td>
-      <td><?= $row['id_pemesanan'] ?></td>
-      <td><?= $row['tanggal_pemesanan'] ?></td>
-      <td><?= $row['nama_paket'] ?></td>
-      <td><?= $row['jumlah_orang'] ?></td>
-      <td>Rp <?= number_format($row['total_bayar'], 0, ',', '.') ?></td>
-      <td><?= $row['status'] ?></td>
-      <td>
-        <?php if ($row['status'] == "Menunggu Konfirmasi") : ?>
-          <a onclick="confirm(<?php echo $row['id_pemesanan'];?>)" title="Klik Untuk Mengkonfirmasi Pesanan Ini" style="cursor:pointer;">Konfirmasi</a>
-        <?php elseif ($row['status'] ==  'Sudah Dikonfirmasi') : ?>
-          <a title="Tiket sudah dikonfirmasi" href="javascript:void(0);" style="color: #aaa; cursor: default;" disabled>Konfirmasi</a>
-        <?php endif; ?>
-        <a href="#" data-toggle="modal" data-target="#detailModal-<?php echo $id ?>" title="Klik untuk melihat detail"><i class="fas fa-info-circle"></i></a>
-        <a onclick="confirmDelete(<?php echo $row['id_pemesanan'];?>)"><i class="fas fa-trash"></i></a>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<div class="modal fade" id="detailModal-<?php echo $id ?>" tabindex="-1" role="dialog" aria-labelledby="detailModalLabel-<?php echo $id ?>" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: none; max-height: none; width: 45%; height: 500px; ">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="detailModalLabel-<?php echo $id ?>">Detail Tiket</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <img src='img/<?php echo $row['nama_gambar'] ?>' style="width: 100%; height: 200px; object-fit: cover;" alt='<?php echo $row['nama_paket'] ?>'>
-        <div class="row">
-          <div class="col-md-6">
-            <p><strong>Nama Pemesan:</strong> <?php echo $row['nama_user']; ?></p>
-            <p><strong>Nama Paket:</strong> <?php echo $row['nama_paket']; ?></p>
-            <p><strong>Jumlah Orang:</strong> <?php echo $row['jumlah_orang'] ?></p>
-            <p><strong>Harga:</strong> Rp <?php echo number_format($row['total_bayar'], 0, ',', '.') ?></p>
-          </div>
-          <div class="col-md-6">
-            <p><strong>Tanggal Berangkat:</strong> <?php echo $row['tanggal_berangkat'] ?></p>
-            <p><strong>Tanggal Kembali:</strong> <?php echo $row['tanggal_kembali'] ?></p>
-            <p><strong>Status:</strong> <?php echo $row['status'] ?></p>
+      <br>
+  
+    <div class="container">
+		<h2 class="text-center">Data Pemesanan</h2>
+		<br>
+		<table id="myTable" class="table table-bordered">
+			<thead>
+				<tr>
+					<th>No.</th>
+					<th>Nama</th>
+					<th>Destinasi</th>
+					<th>Deskripsi</th>
+					<th>Paket Tour</th>
+					<th>Durasi</th>
+					<th>Harga</th>
+					<th>Aksi</th>
+				</tr>
+			</thead>
+    <tbody>
+    <?php 
+    $no = 1; // inisialisasi nomor
+    foreach ($data as $id => $row): ?>
+      <tr>
+        <td><?php echo $no ?></td>
+        <td><?= $row['id_pemesanan'] ?></td>
+        <td><?= $row['tanggal_pemesanan'] ?></td>
+        <td><?= $row['nama_paket'] ?></td>
+        <td><?= $row['jumlah_orang'] ?></td>
+        <td>Rp <?= number_format($row['total_bayar'], 0, ',', '.') ?></td>
+        <td><?= $row['status'] ?></td>
+        <td>
+          <?php if ($row['status'] == "Menunggu Konfirmasi") : ?>
+            <a onclick="confirm(<?php echo $row['id_pemesanan'];?>)" title="Klik Untuk Mengkonfirmasi Pesanan Ini" style="cursor:pointer;">Konfirmasi</a>
+          <?php elseif ($row['status'] ==  'Sudah Dikonfirmasi') : ?>
+            <a title="Tiket sudah dikonfirmasi" href="javascript:void(0);" style="color: #aaa; cursor: default;" disabled>Konfirmasi</a>
+          <?php endif; ?>
+          <a href="#" data-toggle="modal" data-target="#detailModal-<?php echo $id ?>" title="Klik untuk melihat detail"><i class="fas fa-info-circle"></i></a>
+          <a onclick="confirmDelete(<?php echo $row['id_pemesanan'];?>)"><i class="fas fa-trash"></i></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="modal fade" id="detailModal-<?php echo $id ?>" tabindex="-1" role="dialog" aria-labelledby="detailModalLabel-<?php echo $id ?>" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: none; max-height: none; width: 45%; height: 500px; ">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="detailModalLabel-<?php echo $id ?>">Detail Tiket</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src='img/<?php echo $row['nama_gambar'] ?>' style="width: 100%; height: 200px; object-fit: cover;" alt='<?php echo $row['nama_paket'] ?>'>
+          <div class="row">
+            <div class="col-md-6">
+              <p><strong>Nama Pemesan:</strong> <?php echo $row['nama_user']; ?></p>
+              <p><strong>Nama Paket:</strong> <?php echo $row['nama_paket']; ?></p>
+              <p><strong>Jumlah Orang:</strong> <?php echo $row['jumlah_orang'] ?></p>
+              <p><strong>Harga:</strong> Rp <?php echo number_format($row['total_bayar'], 0, ',', '.') ?></p>
+            </div>
+            <div class="col-md-6">
+              <p><strong>Tanggal Berangkat:</strong> <?php echo $row['tanggal_berangkat'] ?></p>
+              <p><strong>Tanggal Kembali:</strong> <?php echo $row['tanggal_kembali'] ?></p>
+              <p><strong>Status:</strong> <?php echo $row['status'] ?></p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary mx-auto d-block" data-dismiss="modal">Tutup</button>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary mx-auto d-block" data-dismiss="modal">Tutup</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 <?php 
 $no++; // increment nomor
 endforeach ?>
