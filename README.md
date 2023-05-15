@@ -29,7 +29,7 @@ lalu isi berapa jumlah orang yang ikut, dan tanggal berangkatnya, maka total har
 
 ### -- Halaman Tiket Saya --
 Pada Halaman ini Customer dapat melihat tiket apa saja yang sudah pernah di beli
-- (GAMBARRRRR)
+![image](https://github.com/A2-5-web/program-web-travel/assets/119683415/39deb027-34e9-4023-817f-5ee1705ffcdd)
 
 ### -- Halaman Logout --
 Pada Halaman ini Customer dapat melakukan logout
