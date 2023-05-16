@@ -72,11 +72,11 @@ if(isset($_GET['view']) && $_GET['view'] === "register") {
 			<label for="name">Name:</label>
 			<input type="text" name="name" id="name" required><br><br>
 
-			<i class="bx bx-map"></i>
+			<i class="bx bx-phone"></i>
 			<label for="phone">Phone:</label>
 			<input type="tel" name="phone" id="phone" required><br><br>
-
-			<i class="bx bx-phone"></i>
+			
+			<i class="bx bx-map"></i>
 			<label for="address">Address:</label>
 			<textarea name="address" id="address" required></textarea><br><br>
 
