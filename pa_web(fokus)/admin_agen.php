@@ -15,7 +15,7 @@ $data = tampil_data_agen('travel_agent');
     <script type="text/javascript" src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://kit.fontawesome.com/20b151daf7.js" crossorigin="anonymous"></script>
-    <title>Tiket Saya</title>
+    <title>AdminHub</title>
     <!-- Boxicons -->
       <link
       href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
@@ -23,7 +23,7 @@ $data = tampil_data_agen('travel_agent');
     />
     <!-- My CSS -->
     <link rel="stylesheet" href="../pa_web(fokus)/css/style2.css" />
-    <link rel="stylesheet" type="text/css" href="css/customer.css">
+</head>
 <body>
     <?php
   if (isset($_GET['pesan'])) {
@@ -51,13 +51,13 @@ $data = tampil_data_agen('travel_agent');
             <span class="text">Home</span>
           </a>
         </li>
-        <li class="active">
+        <li>
           <a href="admin_agen.php">
             <i class="bx bxs-shopping-bag-alt"></i>
             <span class="text">Agen Tiket</span>
           </a>
         </li>
-        <li>
+        <li class="active">
           <a href="admin_customer.php">
             <i class="bx bxs-cart-add"></i>
             <span class="text">Customer</span>
@@ -82,7 +82,15 @@ $data = tampil_data_agen('travel_agent');
         <a href="#" class="nav-link">Kategori</a>
       </nav>
       <!-- NAVBAR -->
-<table id="myTable" class="table table-bordered table-hover" style="margin-top: 100px;">
+
+   <!-- MAIN -->
+   <main>
+  <div class="container">
+		<h2 class="text-center">Tampil Data Agen</h2>
+		<br>
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahModal">Tambah Paket</button>
+		<br>
+		<table id="myTable" class="table table-bordered">
   <thead>
     <tr>
       <th>No.</th>
@@ -142,6 +150,7 @@ $data = tampil_data_agen('travel_agent');
     endforeach ?>
   </tbody>
 </table>
+</div>
 
 <script>
     function confirmDelete(id) {
@@ -169,6 +178,7 @@ $data = tampil_data_agen('travel_agent');
     });
     }
 </script>
+</main>
 </body>
 <script>
     $(document).ready(function() {
