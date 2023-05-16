@@ -32,7 +32,7 @@ require('agen_controller.php');
         <li>
           <a href="agen_beranda.php">
             <i class="bx bxs-home"></i>
-            <span class="text">Home <?php echo $_SESSION['id_user'];?></span>
+            <span class="text">Home</span>
           </a>
         </li>
         <li class="active">

@@ -1,6 +1,5 @@
 <?php 
 
-session_start();
 require 'agen_controller.php';
 
 $jumlahTravel = travel_by_id($_SESSION['id_user']);

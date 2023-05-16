@@ -121,8 +121,6 @@ $data = tampil_order_byID($_SESSION['id_user']);
           <a onclick="confirmDelete(<?php echo $row['id_pemesanan'];?>)"><i class="fas fa-trash"></i></a>
         </td>
       </tr>
-    </tbody>
-  </table>
   <div class="modal fade" id="detailModal-<?php echo $id ?>" tabindex="-1" role="dialog" aria-labelledby="detailModalLabel-<?php echo $id ?>" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: none; max-height: none; width: 45%; height: 500px; ">
       <div class="modal-content">
@@ -157,6 +155,8 @@ $data = tampil_order_byID($_SESSION['id_user']);
 <?php 
 $no++; // increment nomor
 endforeach ?>
+    </tbody>
+  </table>
 
 <script>
     function confirmDelete(id) {

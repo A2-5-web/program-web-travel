@@ -1,5 +1,4 @@
 <?php
-session_start();
 require 'admin_controller.php';
 $data = tampil_data_agen('travel_agent');
 ?>
@@ -47,7 +46,7 @@ $data = tampil_data_agen('travel_agent');
       </a>
       <ul class="side-menu top">
         <li>
-          <a href="agen_beranda.php">
+          <a href="admin_beranda.php">
             <i class="bx bxs-home"></i>
             <span class="text">Home</span>
           </a>

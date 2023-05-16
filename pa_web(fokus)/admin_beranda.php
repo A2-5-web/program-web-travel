@@ -1,6 +1,5 @@
 <?php 
 
-session_start();
 require 'admin_controller.php';
 
 $jumlahAgen = agenCount();
@@ -35,7 +34,7 @@ $jumlahPendapatan = pendapatanSum();
       </a>
       <ul class="side-menu top">
         <li class="active">
-          <a href="agen_beranda.php">
+          <a href="admin_beranda.php">
             <i class="bx bxs-home"></i>
             <span class="text">Home</span>
           </a>

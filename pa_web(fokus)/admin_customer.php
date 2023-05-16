@@ -1,5 +1,4 @@
 <?php
-session_start();
 require 'admin_controller.php';
 $data = tampil_data_customer('customer');
 ?>
@@ -159,7 +158,7 @@ $data = tampil_data_customer('customer');
           button: "OK"
         });
         setTimeout(function() {
-          window.location.href = "admin_controller.php?hapusUser=" + id;
+          window.location.href = "admin_controller.php?hapusCustomer=" + id;
         }, 2000);
       } else {
         swal("Akun tidak jadi dihapus!", {
