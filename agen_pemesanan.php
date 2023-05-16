@@ -93,12 +93,12 @@ $data = tampil_order_byID($_SESSION['id_user']);
 			<thead>
 				<tr>
 					<th>No.</th>
-					<th>Nama</th>
-					<th>Destinasi</th>
-					<th>Deskripsi</th>
-					<th>Paket Tour</th>
-					<th>Durasi</th>
-					<th>Harga</th>
+					<th>ID Pemesanan</th>
+					<th>Tanggal</th>
+					<th>Nama Paket</th>
+					<th>Jumlah</th>
+					<th>Total Harga</th>
+					<th>Status</th>
 					<th>Aksi</th>
 				</tr>
 			</thead>
