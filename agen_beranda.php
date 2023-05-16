@@ -21,7 +21,7 @@ $jumlahPesan = pesan_by_id($_SESSION['id_user']);
       rel="stylesheet"
     />
     <!-- My CSS -->
-    <link rel="stylesheet" href="../pa_web(fokus)/css/style2.css" />
+    <link rel="stylesheet" href="../program-web-travel/css/style2.css"/>
 
     <title>AgenHub</title>
   </head>
