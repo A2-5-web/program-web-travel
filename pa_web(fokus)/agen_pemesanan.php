@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 require 'agen_controller.php';
 $data = tampil_order_byID($_SESSION['id_user']);
 ?>

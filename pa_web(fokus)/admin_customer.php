@@ -1,7 +1,7 @@
 <?php
 session_start();
 require 'admin_controller.php';
-$data = tampil_data_agen('travel_agent');
+$data = tampil_data_customer('customer');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,18 +47,18 @@ $data = tampil_data_agen('travel_agent');
       </a>
       <ul class="side-menu top">
         <li>
-          <a href="agen_beranda.php">
+          <a href="admin_beranda.php">
             <i class="bx bxs-home"></i>
             <span class="text">Home</span>
           </a>
         </li>
-        <li class="active">
+        <li>
           <a href="admin_agen.php">
             <i class="bx bxs-shopping-bag-alt"></i>
             <span class="text">Agen Tiket</span>
           </a>
         </li>
-        <li>
+        <li class="active">
           <a href="admin_customer.php">
             <i class="bx bxs-cart-add"></i>
             <span class="text">Customer</span>
@@ -159,7 +159,7 @@ $data = tampil_data_agen('travel_agent');
           button: "OK"
         });
         setTimeout(function() {
-          window.location.href = "admin_controller.php?hapusAgen=" + id;
+          window.location.href = "admin_controller.php?hapusUser=" + id;
         }, 2000);
       } else {
         swal("Akun tidak jadi dihapus!", {

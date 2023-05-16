@@ -54,6 +54,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     window.location.href = 'agen_beranda.php';
                 });
             </script>";
+        } elseif ($status == "admin") {
+            echo "<script>
+                swal('Selamat', 'Login Berhasil', 'success').then(function() {
+                    window.location.href = 'admin_beranda.php';
+                });
+            </script>";
         } else {
             echo "<script>
                 swal('Gagal', 'Status Pengguna Tidak Valid', 'error').then(function() {

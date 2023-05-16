@@ -46,4 +46,40 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     header('Location: auth_form.php');
     exit;
 }
+
+
+if(isset($_GET['hapusAgen'])) {
+  $id_agen = $_GET['hapusAgen'];
+  // Buat query untuk menghapus data pemesanan
+  $sql = "DELETE FROM user WHERE id_user = '$id_agen'";
+
+  // Eksekusi query dan periksa apakah penghapusan berhasil atau tidak
+  if($conn->query($sql) === TRUE) {
+    // Jika penghapusan berhasil, tampilkan pesan konfirmasi
+    header("location: admin_agen.php");
+  } else {
+    // Jika penghapusan gagal, tampilkan pesan error
+    header("location: admin_agen.php?pesan=Gagal Menghapus Agen");
+  }
+
+  // Tutup koneksi ke basis data
+  $conn->close();
+}
+if(isset($_GET['hapusCustomer'])) {
+  $id_customer = $_GET['hapusCustomer'];
+  // Buat query untuk menghapus data pemesanan
+  $sql = "DELETE FROM user WHERE id_user = '$id_customer'";
+
+  // Eksekusi query dan periksa apakah penghapusan berhasil atau tidak
+  if($conn->query($sql) === TRUE) {
+    // Jika penghapusan berhasil, tampilkan pesan konfirmasi
+    header("location: admin_customer.php");
+  } else {
+    // Jika penghapusan gagal, tampilkan pesan error
+    header("location: admin_customer.php?pesan=Gagal Menghapus Customer");
+  }
+
+  // Tutup koneksi ke basis data
+  $conn->close();
+}
 ?>
