@@ -12,7 +12,8 @@ if (!$conn) {
 //----------------------LOGOUT--------------------------//
 if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     // Hapus session id_user
-    unset($_SESSION['id_user']);
+    session_unset();
+    session_destroy();
     // Redirect ke halaman login
     header('Location: auth_form.php');
     exit;

@@ -1,6 +1,7 @@
 <?php 
 
 require 'admin_controller.php';
+include 'session_checker.php';
 
 $jumlahAgen = agenCount();
 $jumlahCustomer = customerCount();

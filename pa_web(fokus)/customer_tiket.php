@@ -1,6 +1,6 @@
 <?php
-session_start();
 require 'customer_controller.php';
+include 'session_checker.php';
 $data = tampil_order_byID($_SESSION['id_user']);
 ?>
 
@@ -55,7 +55,7 @@ $data = tampil_order_byID($_SESSION['id_user']);
           </button>
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a href="customer_pesan.php" class="nav-link">Beranda</a>
+              <a href="customer_pesan.php" class="nav-link">Beranda <?php echo $_SESSION['login'];?></a>
             </li>
             <li class="nav-item">
               <a href="customer_tiket.php" class="nav-link">Tiket Saya</a>

@@ -1,5 +1,6 @@
 <?php 
 require('agen_controller.php');
+include 'session_checker.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

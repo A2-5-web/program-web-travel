@@ -1,6 +1,7 @@
 <?php
 
 require 'agen_controller.php';
+include 'session_checker.php';
 $data = tampil_order_byID($_SESSION['id_user']);
 ?>
 <!DOCTYPE html>

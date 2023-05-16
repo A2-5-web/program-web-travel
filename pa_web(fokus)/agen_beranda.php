@@ -1,6 +1,7 @@
 <?php 
 
 require 'agen_controller.php';
+include 'session_checker.php';
 
 $jumlahTravel = travel_by_id($_SESSION['id_user']);
 $jumlahPesan = pesan_by_id($_SESSION['id_user']);

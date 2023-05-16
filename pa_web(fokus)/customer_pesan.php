@@ -1,6 +1,7 @@
 <?php
 session_start();
 require 'customer_controller.php';
+include 'session_checker.php';
 
 // Eksekusi query dan simpan hasilnya dalam variabel $result
 $result = tampil_data();

@@ -1,5 +1,6 @@
 <?php
 require 'admin_controller.php';
+include 'session_checker.php';
 $data = tampil_data_customer('customer');
 ?>
 <!DOCTYPE html>
