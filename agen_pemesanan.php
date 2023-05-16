@@ -26,7 +26,7 @@ $data = tampil_order_byID($_SESSION['id_user']);
       rel="stylesheet"
     />
     <!-- My CSS -->
-    <link rel="stylesheet" href="../program-web-travel/css/style2.css" />
+    <link rel="stylesheet" href="css/style2.css" />
 <body>
     <?php
   if (isset($_GET['pesan'])) {

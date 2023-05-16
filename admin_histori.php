@@ -25,7 +25,7 @@ $data = tampil_data_histori();
       rel="stylesheet"
     />
     <!-- My CSS -->
-    <link rel="stylesheet" href="../pa_web(fokus)/css/style2.css" />
+    <link rel="stylesheet" href="css/style2.css" />
 <body>
     <?php
   if (isset($_GET['pesan'])) {
@@ -93,9 +93,7 @@ $data = tampil_data_histori();
       <main>
   <div class="container">
 		<h2 class="text-center">Tampil Data Histori</h2>
-		<br>
-		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahModal">Tampil Data Histori</button>
-		<br>
+		
 		<table id="myTable" class="table table-bordered">
   <thead>
     <tr>
