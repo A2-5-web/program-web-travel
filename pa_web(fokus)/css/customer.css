@@ -597,3 +597,46 @@ social-links li a:hover i.fab.fa-facebook-f {
 #tampungHarga {
   display: none;
 }
+
+/* CSS for table styling */
+
+.table {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#myTable {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+#myTable th,
+#myTable td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+#myTable th:nth-child(1),
+#myTable td:nth-child(1) {
+  width: 60px;
+}
+
+#myTable th:nth-child(4),
+#myTable td:nth-child(4) {
+  width: 300px;
+  text-align: justify;
+}
+
+#myTable th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+#myTable tbody tr:hover {
+  background-color: var(--light-blue);
+}
