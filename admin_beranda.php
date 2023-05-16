@@ -23,7 +23,7 @@ $jumlahPendapatan = pendapatanSum();
       rel="stylesheet"
     />
     <!-- My CSS -->
-    <link rel="stylesheet" href="../pa_web(fokus)/css/style2.css" />
+    <link rel="stylesheet" href="../program-web-travel/css/style2.css" />
 
     <title>AdminHub</title>
   </head>
