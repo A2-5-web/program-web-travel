@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2023 at 09:46 PM
+-- Generation Time: May 16, 2023 at 05:39 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -61,9 +61,19 @@ CREATE TABLE `pemesanan` (
   `id_paket` int(5) NOT NULL,
   `jumlah_orang` int(2) NOT NULL,
   `tanggal_pemesanan` date NOT NULL,
-  `total_bayar` mediumint(9) NOT NULL,
-  `status` enum('Sudah Dibayar','Belum Dibayar') NOT NULL
+  `tanggal_berangkat` date NOT NULL,
+  `tanggal_kembali` date NOT NULL,
+  `total_bayar` bigint(20) NOT NULL,
+  `status` enum('Sudah Dikonfirmasi','Belum Dibayar','Menunggu Konfirmasi') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pemesanan`
+--
+
+INSERT INTO `pemesanan` (`id_pemesanan`, `id_user`, `id_paket`, `jumlah_orang`, `tanggal_pemesanan`, `tanggal_berangkat`, `tanggal_kembali`, `total_bayar`, `status`) VALUES
+(24, 8, 25, 3, '2023-05-15', '2023-05-16', '2023-05-19', 7500000, 'Sudah Dikonfirmasi'),
+(26, 8, 26, 1, '2023-05-15', '2023-06-15', '2023-06-17', 4000000, 'Belum Dibayar');
 
 -- --------------------------------------------------------
 
@@ -88,8 +98,9 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id_user`, `nama_user`, `no_user`, `alamat_user`, `status`, `jenis_kelamin`, `username`, `password`) VALUES
 (4, 'Raihan Daiva Geralda', '089628270851', 'Jalan Ulin Gang 2 No. 80 RT. 21 Samarinda', 'travel_agent', 'L', 'daivageralda', 'hanzz357'),
-(6, 'Rahmad Fitrianto', '082254320821', 'Jalan Sejati Gang Durian', 'customer', 'L', 'rahmad', '1234'),
-(7, 'Rahmad Fitrianto', '082254320821', 'Jalan Sejati Gang Durian', 'travel_agent', 'L', 'rahmad', '123');
+(7, 'Rahmad Fitrianto', '082254320821', 'Jalan Sejati Gang Durian', 'travel_agent', 'L', 'rahmad', '123'),
+(8, 'Bagus', '089628270851', 'Jalan Ulin Gang 2 No. 80 RT. 21 Samarinda', 'customer', 'L', 'bagus', '123'),
+(9, 'Admin', '081212343456', 'Jalan Anonym', 'admin', 'L', 'admin', '123');
 
 --
 -- Indexes for dumped tables
@@ -124,19 +135,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `paket`
 --
 ALTER TABLE `paket`
-  MODIFY `id_paket` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_paket` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `pemesanan`
 --
 ALTER TABLE `pemesanan`
-  MODIFY `id_pemesanan` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pemesanan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables
