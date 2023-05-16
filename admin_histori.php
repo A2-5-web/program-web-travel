@@ -3,7 +3,7 @@ require 'admin_controller.php';
 if (!isset($_SESSION['login']) || $_SESSION['login'] !== "ya") {
     header("location: auth_form.php?view=login");
 }
-$data = tampil_data_agen('travel_agent');
+$data = tampil_data_histori();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +18,7 @@ $data = tampil_data_agen('travel_agent');
     <script type="text/javascript" src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://kit.fontawesome.com/20b151daf7.js" crossorigin="anonymous"></script>
-    <title>AdminHub</title>
+    <title>Tiket Saya</title>
     <!-- Boxicons -->
       <link
       href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
@@ -26,7 +26,6 @@ $data = tampil_data_agen('travel_agent');
     />
     <!-- My CSS -->
     <link rel="stylesheet" href="../pa_web(fokus)/css/style2.css" />
-</head>
 <body>
     <?php
   if (isset($_GET['pesan'])) {
@@ -60,13 +59,13 @@ $data = tampil_data_agen('travel_agent');
             <span class="text">Agen Tiket</span>
           </a>
         </li>
-        <li class="active">
+        <li>
           <a href="admin_customer.php">
             <i class="bx bxs-cart-add"></i>
             <span class="text">Customer</span>
           </a>
         </li>
-        <li>
+        <li class="active">
           <a href="admin_histori.php">
             <i class="bx bxs-cart-add"></i>
             <span class="text">Histori Login</span>
@@ -91,24 +90,18 @@ $data = tampil_data_agen('travel_agent');
         <a href="#" class="nav-link">Kategori</a>
       </nav>
       <!-- NAVBAR -->
-
-   <!-- MAIN -->
-   <main>
+      <main>
   <div class="container">
-		<h2 class="text-center">Tampil Data Agen</h2>
+		<h2 class="text-center">Tampil Data Histori</h2>
 		<br>
-		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahModal">Tambah Paket</button>
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahModal">Tampil Data Histori</button>
 		<br>
 		<table id="myTable" class="table table-bordered">
   <thead>
     <tr>
       <th>No.</th>
-      <th>Nama</th>
-      <th>No. HP</th>
-      <th>Alamat</th>
-      <th>Jenis Kelamin</th>
-      <th>Username</th>
-      <th>Aksi</th>
+      <th>Waktu dan Tanggal</th>
+      <th>Status</th>
     </tr>
   </thead>
   <tbody>
@@ -117,76 +110,14 @@ $data = tampil_data_agen('travel_agent');
   foreach ($data as $id => $row): ?>
     <tr>
       <td><?php echo $no ?></td>
-      <td><?php echo $row['nama_user'] ?></td>
-      <td><?php echo $row['no_user'] ?></td>
-      <td><?php echo $row['alamat_user'] ?></td>
-      <td><?php echo $row['jenis_kelamin'] ?></td>
-      <td><?php echo $row['username'] ?></td>
-      <td>
-        <a href="#" data-toggle="modal" data-target="#detailModal-<?php echo $id ?>" title="Klik untuk melihat detail"><i class="fas fa-info-circle"></i></a>
-        <a onclick="confirmDelete(<?php echo $row['id_user'];?>)"><i class="fas fa-trash"></i></a>
-      </td>
+      <td><?php echo $row['tanggal_login'] ?></td>
+      <td><?php echo $row['status'] ?></td>
     </tr>
-    <div class="modal fade" id="detailModal-<?php echo $id ?>" tabindex="-1" role="dialog" aria-labelledby="detailModalLabel-<?php echo $id ?>" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: none; max-height: none; width: 45%; height: 500px; ">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="detailModalLabel-<?php echo $id ?>">Detail Agen</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <div class="row">
-            <div class="col-md-6">
-                <p><strong>Nama Agen :</strong> <?php echo $row['nama_user']; ?></p>
-                <p><strong>Nomor HP :</strong> <?php echo $row['no_user'] ?></p>
-                <p><strong>Alamat :</strong> <?php echo $row['alamat_user'] ?></p>
-            </div>
-            <div class="col-md-6">
-                <p><strong>Jenis Kelamin:</strong> <?php echo $row['jenis_kelamin'] ?></p>
-            </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary mx-auto d-block" data-dismiss="modal">Tutup</button>
-        </div>
-        </div>
-    </div>
-    </div>
     <?php 
     $no++; // increment nomor
     endforeach ?>
   </tbody>
 </table>
-</div>
-
-<script>
-    function confirmDelete(id) {
-    swal({
-      title: "Apakah anda yakin?",
-      text: "Anda tidak dapat mengembalikan ini!",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    }).then((willDelete) => {
-      if (willDelete) {
-        swal("Berhasil menghapus akun", {
-          icon: "success",
-          button: "OK"
-        });
-        setTimeout(function() {
-          window.location.href = "admin_controller.php?hapusAgen=" + id;
-        }, 2000);
-      } else {
-        swal("Akun tidak jadi dihapus!", {
-          icon: "info",
-          button: "OK"
-        });
-      }
-    });
-    }
-</script>
 </main>
 </body>
 <script>

@@ -53,6 +53,12 @@ $jumlahPendapatan = pendapatanSum();
             <span class="text">Customer</span>
           </a>
         </li>
+        <li>
+          <a href="admin_histori.php">
+            <i class="bx bxs-cart-add"></i>
+            <span class="text">Histori Login</span>
+          </a>
+        </li>
       <ul class="side-menu">
         <li>
           <a href="admin_controller.php?action=logout" class="logout">

@@ -41,6 +41,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['id_user'] = $row['id_user'];
             $_SESSION['status'] = $row['status'];
             $_SESSION['login'] = "ya";
+            $date = date('Y-m-d H:i:s');
+
+            $query = "INSERT INTO histori_login (id_user, tanggal_login) VALUES (" . $_SESSION['id_user'] . ", '$date')";
+            mysqli_query($conn,$query);
 
             if ($status == "customer") {
                 echo "<script>

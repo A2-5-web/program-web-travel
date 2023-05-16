@@ -15,6 +15,12 @@ function tampil_data_customer($role){
     $result = mysqli_query($conn,$query);
     return $result;
 }
+function tampil_data_histori(){
+    global $conn;
+    $query = "SELECT histori_login.*, user.status FROM histori_login JOIN user ON histori_login.id_user = user.id_user";
+    $result = mysqli_query($conn,$query);
+    return $result;
+}
 
 function customerCount(){
     global $conn;
