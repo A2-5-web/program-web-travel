@@ -1,7 +1,9 @@
 <?php
 
 require 'agen_controller.php';
-include 'session_checker.php';
+if (!isset($_SESSION['login']) || $_SESSION['login'] !== "ya") {
+    header("location: auth_form.php?view=login");
+}
 $data = tampil_order_byID($_SESSION['id_user']);
 ?>
 <!DOCTYPE html>

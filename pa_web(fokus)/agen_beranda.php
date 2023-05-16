@@ -1,11 +1,11 @@
 <?php 
 
 require 'agen_controller.php';
-include 'session_checker.php';
-
+if (!isset($_SESSION['login']) || $_SESSION['login'] !== "ya") {
+    header("location: auth_form.php?view=login");
+}
 $jumlahTravel = travel_by_id($_SESSION['id_user']);
 $jumlahPesan = pesan_by_id($_SESSION['id_user']);
-
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +36,7 @@ $jumlahPesan = pesan_by_id($_SESSION['id_user']);
         <li class="active">
           <a href="agen_beranda.php">
             <i class="bx bxs-home"></i>
-            <span class="text">Home</span>
+            <span class="text">Home<?php echo $_SESSION['login'];?></span>
           </a>
         </li>
         <li>

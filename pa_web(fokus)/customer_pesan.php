@@ -1,7 +1,10 @@
 <?php
 session_start();
+if (!isset($_SESSION['login']) || $_SESSION['login'] !== "ya") {
+    header("location: auth_form.php?view=login");
+}
 require 'customer_controller.php';
-include 'session_checker.php';
+
 
 // Eksekusi query dan simpan hasilnya dalam variabel $result
 $result = tampil_data();

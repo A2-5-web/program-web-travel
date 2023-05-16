@@ -6,9 +6,9 @@
 </head>
 </html>
 <?php
-session_unset();
 session_start();
 
+session_unset();
 // Koneksi ke database
 $servername = "localhost";
 $username = "root";
@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $status = $row["status"];
             $_SESSION['id_user'] = $row['id_user'];
             $_SESSION['status'] = $row['status'];
-            $_SESSION['login'] = true;
+            $_SESSION['login'] = "ya";
 
             if ($status == "customer") {
                 echo "<script>

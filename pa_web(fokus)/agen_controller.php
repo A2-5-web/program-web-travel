@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 // Koneksi ke database
 $servername = "localhost";
 $username = "root";
@@ -15,7 +16,7 @@ if (!$conn) {
 //----------------------LOGOUT--------------------------//
 if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     // Hapus session id_user
-    unset($_SESSION['id_user']);
+    session_unset();
     // Redirect ke halaman login
     header('Location: auth_form.php');
     exit;

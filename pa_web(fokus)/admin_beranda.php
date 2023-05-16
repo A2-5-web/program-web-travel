@@ -1,8 +1,9 @@
 <?php 
 
 require 'admin_controller.php';
-include 'session_checker.php';
-
+if (!isset($_SESSION['login']) || $_SESSION['login'] !== "ya") {
+    header("location: auth_form.php?view=login");
+}
 $jumlahAgen = agenCount();
 $jumlahCustomer = customerCount();
 $jumlahPendapatan = pendapatanSum();
