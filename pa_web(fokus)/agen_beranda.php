@@ -96,13 +96,6 @@ $jumlahPesan = pesan_by_id($_SESSION['id_user']);
                 <div class="text">Tiket Dipesan</div>
               </div>
             </div>
-            <div class="card">
-              <div class="card-header">Jumlah Paket Travel</div>
-              <div class="card-body">
-                <div class="number">100</div>
-                <div class="text">Paket Travel Tersedia</div>
-              </div>
-            </div>
           </div>
         </div>
       </main>

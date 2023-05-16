@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'customer_controller.php';
 if (!isset($_SESSION['login']) || $_SESSION['login'] !== "ya") {
     header("location: auth_form.php?view=login");
