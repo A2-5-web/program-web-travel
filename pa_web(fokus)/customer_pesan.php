@@ -283,17 +283,6 @@ $result = tampil_data();
     <!-- end of footer -->
     <!-- js -->
     <script>
-      // script jquery untuk membuka dan menutup modal
-      $(document).ready(function() {
-        $('.btn-detail, .btn-custom').on('click', function() {
-          var modalId = $(this).attr('data-target');
-          $(modalId).modal('show');
-        });
-        
-        $('.modal').on('hidden.bs.modal', function() {
-          $('.btn-detail, .btn-custom').removeClass('active');
-        });
-      });
 
       // untuk merubah format angka menjadi rupiah 
       function formatRupiah(angka) {
