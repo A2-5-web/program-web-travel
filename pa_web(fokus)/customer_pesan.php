@@ -39,7 +39,6 @@ $result = tampil_data();
     <link rel="stylesheet" href="css/normalize.css" />
     <!-- custom css -->
     <link rel="stylesheet" href="css/utility.css" />
-    <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/responsive.css" />
     <link rel="stylesheet" type="text/css" href="css/customer.css">
   </head>
@@ -213,10 +212,11 @@ $result = tampil_data();
     <!-- end of booknow section -->
     
     <!-- footer -->
+    <br>
     <footer class="py-4">
       <div class="container footer-row">
         <div class="footer-item">
-          <a href="home.html" class="site-brand"> Travel<span>5</span> </a>
+          <a href="customer_pesan.php" class="site-brand"> Travel<span>5</span> </a>
           <p class="text">
             Jangan lewatkan kesempatan untuk mengunjungi destinasi terbaik di
             seluruh dunia dengan Travel5. Kami menyediakan pilihan tempat wisata
@@ -255,30 +255,6 @@ $result = tampil_data();
             </li>
           </ul>
         </div>
-
-        <div class="footer-item">
-          <h2>Popular Places:</h2>
-          <ul>
-            <li><a href="#">Thailand</a></li>
-            <li><a href="#">Australia</a></li>
-            <li><a href="#">Maldives</a></li>
-            <li><a href="#">Switzerland</a></li>
-            <li><a href="#">Germany</a></li>
-          </ul>
-        </div>
-
-        <div class="subscribe-form footer-item">
-          <h2>Subscribe for Newsletter!</h2>
-          <form class="flex">
-            <input
-              type="email"
-              placeholder="Enter Email"
-              class="form-control"
-            />
-            <input type="submit" class="btn" value="Subscribe" />
-          </form>
-        </div>
-      </div>
     </footer>
     <!-- end of footer -->
     <!-- js -->
