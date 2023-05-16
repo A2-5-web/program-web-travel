@@ -327,7 +327,6 @@ header {
     linear,
     left top,
     left bottom,
-    from(transparent),
     color-stop(18%, transparent),
     color-stop(99%, rgba(0, 0, 0, 0.8)),
     to(rgba(0, 0, 0, 0.8))
@@ -639,4 +638,49 @@ social-links li a:hover i.fab.fa-facebook-f {
 
 #myTable tbody tr:hover {
   background-color: var(--light-blue);
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.modal-content {
+  background-color: #ffffff;
+}
+.modal-header {
+  background-color: #ffffff;
+}
+.modal-body {
+  background-color: #ffffff;
+}
+.modal-footer {
+  background-color: #ffffff;
+}
+.row {
+  background-color: #ffffff;
+  padding: 20px;
 }

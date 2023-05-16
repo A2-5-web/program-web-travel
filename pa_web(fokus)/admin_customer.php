@@ -24,7 +24,6 @@ $data = tampil_data_customer('customer');
     />
     <!-- My CSS -->
     <link rel="stylesheet" href="../pa_web(fokus)/css/style2.css" />
-    <link rel="stylesheet" type="text/css" href="css/customer.css">
 <body>
     <?php
   if (isset($_GET['pesan'])) {
@@ -83,7 +82,13 @@ $data = tampil_data_customer('customer');
         <a href="#" class="nav-link">Kategori</a>
       </nav>
       <!-- NAVBAR -->
-<table id="myTable" class="table table-bordered table-hover" style="margin-top: 100px;">
+      <main>
+  <div class="container">
+		<h2 class="text-center">Tampil Data Agen</h2>
+		<br>
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahModal">Tampil Data Customer</button>
+		<br>
+		<table id="myTable" class="table table-bordered">
   <thead>
     <tr>
       <th>No.</th>
@@ -170,6 +175,7 @@ $data = tampil_data_customer('customer');
     });
     }
 </script>
+</main>
 </body>
 <script>
     $(document).ready(function() {

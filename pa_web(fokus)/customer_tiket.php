@@ -37,7 +37,6 @@ $data = tampil_order_byID($_SESSION['id_user']);
     <link rel="stylesheet" href="css/normalize.css" />
     <!-- custom css -->
     <link rel="stylesheet" href="css/utility.css" />
-    <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/responsive.css" />
     <link rel="stylesheet" type="text/css" href="css/customer.css">
   </head>
@@ -144,6 +143,7 @@ $data = tampil_order_byID($_SESSION['id_user']);
           <a onclick="confirmDelete(<?php echo $row['id_pemesanan'];?>)"><i class="fas fa-trash"></i></a>
         </td>
       </tr>
+  
   <div class="modal fade" id="detailModal-<?php echo $id ?>" tabindex="-1" role="dialog" aria-labelledby="detailModalLabel-<?php echo $id ?>" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: none; max-height: none; width: 45%; height: 500px; ">
       <div class="modal-content">
